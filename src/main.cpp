@@ -8,9 +8,11 @@
 #include <config.h>
 #include <time.h>
 
-void getTime(int &minutes, int &hours); //reads the time data from the gps and applies the time zone
+void getGPSTime(int &seconds, int &minutes, int &hours); //reads the time data from the gps and applies the time zone
+void getRTCTime(int &minutes, int &hours); //reads the time data from the RTC
+void setRTCTime(); //sets the RTC time using the GPS
 void twelveHour(int &hours); //converts the time from 24hr to 12hr
-void startup(); //cyles the tubes through all numbers until they display the correct time
+void startup(); //cyles the tubes and displays the current time at the end
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers
 void nixieDisplayMinutes(int a, int b, int c, int d, int value); //outputs binary to the minutes nixie drivers
 void nixieDisplayHours(int a, int b, int c, int d, int value); //outputs binary to the hours nixie drivers
@@ -64,7 +66,7 @@ void loop() {
   startup();
 
   while (true) {
-    getTime(minutes, hours);
+    getRTCTime(minutes, hours);
 
     if (last != minutes) {
       //parses the minute data for the tens and ones digits
@@ -85,7 +87,7 @@ void loop() {
 
       //prints the time to the serial monitor
       #ifdef TIME_DEBUG
-        Serial.print("Time: ");
+        Serial.print("RTC Time: ");
         Serial.print(hourTens);
         Serial.print(hourOnes);
         Serial.print(":");
@@ -107,8 +109,8 @@ void loop() {
   }
 }
 
-void getTime(int &minutes, int &hours) {
-    
+//pulls 24hr UTC time from the GPS satellites
+void getGPSTime(int &seconds, int &minutes, int &hours) {
   do {  
     gps.read();
 
@@ -127,14 +129,34 @@ void getTime(int &minutes, int &hours) {
   //gets the time from the gps data
   minutes = gps.minute;
   hours = gps.hour;
-  int cycleSpeed = 50;
+  seconds = gps.seconds;
+
+  return;
+}
+
+//RTC time is stored as 24hr UTC time
+void setRTCTime() {
+  int seconds, minutes, hours;
+
+  getGPSTime(seconds, minutes, hours);
+
+  //stores the GPS time in the RTC, date is set to the start of UNIX time
+  rtc.adjust(DateTime(1970, 1, 1, hours, minutes, seconds));
+
+  return;
+}
+
+//Pulls the time from the RTC and converts it to 
+void getRTCTime(int &minutes, int &hours) {
+  //gets the current time from the RTC
+  DateTime now = rtc.now();
+
+  //pulls the RTC time
+  minutes = now.minute();
+  hours = now.hour();
 
   //converts from UTC to the desired time zone
   hours += TIME_ZONE;
-
-  if (hours == 3) {
-    cycleDisplay(cycleSpeed);
-  }
 
   //checks if the timezone compensated time is outside of 24hr
   if (hours < 0)
@@ -154,6 +176,7 @@ void getTime(int &minutes, int &hours) {
   return;
 }
 
+//converts 24hr time to 12hr time
 void twelveHour(int &hours) {
   if(hours == 0)
     {
@@ -163,6 +186,8 @@ void twelveHour(int &hours) {
     {
       hours -= 12;
     }
+
+  return;
 }
 
 void startup() {
@@ -170,7 +195,8 @@ void startup() {
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
 
-  getTime(minutes, hours);
+  setRTCTime();
+  getRTCTime(minutes, hours);
 
   cycleDisplay(delaySpeed);
 
@@ -230,6 +256,8 @@ void cycleDisplay(int &delaySpeed) {
 
     cycle++;
   } while (cycle < 4);
+
+  return;
 }
 
 void nixieDisplayMinutes(int a, int b, int c, int d, int value) {
@@ -237,6 +265,8 @@ void nixieDisplayMinutes(int a, int b, int c, int d, int value) {
   minutes.digitalWrite(c, (value & 0x04) >> 2);
   minutes.digitalWrite(b, (value & 0x02) >> 1);
   minutes.digitalWrite(a, value & 0x01);
+
+  return;
 }
 
 void nixieDisplayHours(int a, int b, int c, int d, int value) {
@@ -244,4 +274,6 @@ void nixieDisplayHours(int a, int b, int c, int d, int value) {
   hours.digitalWrite(c, (value & 0x04) >> 2);
   hours.digitalWrite(b, (value & 0x02) >> 1);
   hours.digitalWrite(a, value & 0x01);
+
+  return;
 }
