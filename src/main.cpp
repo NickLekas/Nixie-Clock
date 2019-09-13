@@ -66,8 +66,10 @@ void loop() {
   startup();
 
   while (true) {
+    //pulls time from the RTC
     getRTCTime(minutes, hours);
 
+    //checks if the time has changed from the last time get
     if (last != minutes) {
       //parses the minute data for the tens and ones digits
       minOnes = minutes % 10;
@@ -99,6 +101,7 @@ void loop() {
       //keeps track of the previous minute to compare with the next gps read cycle
       last = minutes;
 
+      //syncs the time updates to be every 60 seconds on the first loop and then sleeps the arduino ~60 seconds
       if(loop < 1){
         loop++;
       }
@@ -111,13 +114,18 @@ void loop() {
 
 //pulls 24hr UTC time from the GPS satellites
 void getGPSTime(int &seconds, int &minutes, int &hours) {
+  //checks for new data and loops until a satellite fix is aquired
   do {  
+    //reads the most recent date from the gps
     gps.read();
 
+    //checks if new data was received
     if(gps.newNMEAreceived()) {
+      //parses the new data
       gps.parse(gps.lastNMEA());
     }
 
+    //prints out the satellite fix data
     #ifdef FIX_DEBUG
       Serial.print("Fix: ");
       Serial.print(gps.fix);
@@ -126,7 +134,7 @@ void getGPSTime(int &seconds, int &minutes, int &hours) {
 
   } while(gps.fix < 1 && !gps.newNMEAreceived());
 
-  //gets the time from the gps data
+  //gets the time from the new gps data
   minutes = gps.minute;
   hours = gps.hour;
   seconds = gps.seconds;
@@ -138,6 +146,7 @@ void getGPSTime(int &seconds, int &minutes, int &hours) {
 void setRTCTime() {
   int seconds, minutes, hours;
 
+  //gets the time from the GPS
   getGPSTime(seconds, minutes, hours);
 
   //stores the GPS time in the RTC, date is set to the start of UNIX time
@@ -195,11 +204,15 @@ void startup() {
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
 
+  //sets the RTC time using the GPS
   setRTCTime();
+  //pulls the time from the RTC
   getRTCTime(minutes, hours);
 
+  //cycles through the digits of the tubes for show
   cycleDisplay(delaySpeed);
 
+  //prints the time data
   #ifdef TIME_DEBUG
     Serial.print("Startup: ");
     Serial.print(hours);
@@ -241,7 +254,7 @@ void startup() {
 void cycleDisplay(int &delaySpeed) {
   int i, cycle = 0;
 
-  //cycles though all digites in order twice
+  //cycles though all digites in order four times getting slower on each loop
   do {
     for(i = 0; i < 10; i++) {
       nixieDisplayMinutes(onesA, onesB, onesC, onesD, i);
@@ -260,6 +273,7 @@ void cycleDisplay(int &delaySpeed) {
   return;
 }
 
+//writes the given value to the minutes gpio expander
 void nixieDisplayMinutes(int a, int b, int c, int d, int value) {
   minutes.digitalWrite(d, (value & 0x08) >> 3);
   minutes.digitalWrite(c, (value & 0x04) >> 2);
@@ -269,6 +283,7 @@ void nixieDisplayMinutes(int a, int b, int c, int d, int value) {
   return;
 }
 
+//writes the given value to the hours gpio expandr
 void nixieDisplayHours(int a, int b, int c, int d, int value) {
   hours.digitalWrite(d, (value & 0x08) >> 3);
   hours.digitalWrite(c, (value & 0x04) >> 2);
