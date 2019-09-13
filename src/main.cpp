@@ -33,6 +33,10 @@ void setup() {
 
   Serial.begin(115200);
 
+  #ifdef GENERAL_DEBUG
+    Serial.println("Starting");
+  #endif
+
   //sets all the pins of the PCF8574 I/O expanders to outputs for cntrolling the nixie drivers
   for (i = 0; i < 8; i++)
   {
@@ -114,6 +118,10 @@ void loop() {
 
 //pulls 24hr UTC time from the GPS satellites
 void getGPSTime(int &seconds, int &minutes, int &hours) {
+  #ifdef GENERAL_DEBUG
+    Serial.println("Waiting for GPS fix");
+  #endif
+
   //checks for new data and loops until a satellite fix is aquired
   do {  
     //reads the most recent date from the gps
@@ -133,6 +141,10 @@ void getGPSTime(int &seconds, int &minutes, int &hours) {
     #endif
 
   } while(gps.fix < 1 && !gps.newNMEAreceived());
+
+  #ifdef GENERAL_DEBUG
+    Serial.println("GPS fix found");
+  #endif
 
   //gets the time from the new gps data
   minutes = gps.minute;
