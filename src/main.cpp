@@ -13,6 +13,7 @@ void getRTCTime(int &minutes, int &hours); //reads the time data from the RTC
 void setRTCTime(); //sets the RTC time using the GPS
 void twelveHour(int &hours); //converts the time from 24hr to 12hr
 void startup(); //cyles the tubes and displays the current time at the end
+void updateRTC();
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers
 void nixieDisplayMinutes(int a, int b, int c, int d, int value); //outputs binary to the minutes nixie drivers
 void nixieDisplayHours(int a, int b, int c, int d, int value); //outputs binary to the hours nixie drivers
@@ -56,7 +57,7 @@ void setup() {
   gps.begin(9600);
   gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
   gps.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);
-  gps.sendCommand(PGCMD_ANTENNA);
+  //gps.sendCommand(PGCMD_ANTENNA);
 
   //gives the gps 1 second to start up
   delay(1000);
@@ -179,6 +180,10 @@ void getRTCTime(int &minutes, int &hours) {
   //converts from UTC to the desired time zone
   hours += TIME_ZONE;
 
+  if(hours == 3) {
+    updateRTC();
+  }
+
   //checks if the timezone compensated time is outside of 24hr
   if (hours < 0)
   {
@@ -246,21 +251,26 @@ void startup() {
     if(i <= minOnes) {
       nixieDisplayMinutes(onesA, onesB, onesC, onesD, i);
     }
-
     if(i <= minTens) {
       nixieDisplayMinutes(tensA, tensB, tensC, tensD, i);
     }
-
     if(i <= hourOnes) {
       nixieDisplayHours(onesA, onesB, onesC, onesD, i);
     }
-
     if(i <= hourTens) {
       nixieDisplayHours(tensA, tensB, tensC, tensD, i);
     }
 
     delay(delaySpeed);
   }
+}
+
+void updateRTC() {
+  int cycleSpeed = 50;
+
+  cycleDisplay(cycleSpeed);
+
+  setRTCTime();
 }
 
 void cycleDisplay(int &delaySpeed) {
