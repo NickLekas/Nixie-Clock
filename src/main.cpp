@@ -170,6 +170,8 @@ void setRTCTime() {
 
 //Pulls the time from the RTC and converts it to 
 void getRTCTime(int &minutes, int &hours) {
+  bool update = true;
+
   //gets the current time from the RTC
   DateTime now = rtc.now();
 
@@ -180,9 +182,12 @@ void getRTCTime(int &minutes, int &hours) {
   //converts from UTC to the desired time zone
   hours += TIME_ZONE;
 
-  if(hours == 3) {
+  if(hours == 3 && update == true) {
     updateRTC();
+    update == false;
   }
+
+  update == true;
 
   //checks if the timezone compensated time is outside of 24hr
   if (hours < 0)
