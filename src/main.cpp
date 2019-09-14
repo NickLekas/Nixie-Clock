@@ -184,10 +184,10 @@ void getRTCTime(int &minute, int &hour) {
 
   if(hour == 3 && update == true) {
     updateRTC();
-    update == false;
+    update = false;
   }
 
-  update == true;
+  update = true;
 
   //checks if the timezone compensated time is outside of 24hr
   if (hour < 0)
