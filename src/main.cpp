@@ -182,23 +182,26 @@ void getRTCTime(int &minute, int &hour) {
   //converts from UTC to the desired time zone
   hour += TIME_ZONE;
 
-  if(hour == 3 && update == true) {
+  //checks if the timezone compensated time is outside of 24hr
+  if (hour < 0)
+  {
+    hour += 24;
+  }
+  else if (hour > 23)
+  {
+    hour -= 24;
+  }
+
+  //updates the RTC time at 3am in the set timezone every day
+  /*
+  if(hour == 3 && minute == 0 && update == true) {
     updateRTC();
     update = false;
   }
 
   update = true;
-
-  //checks if the timezone compensated time is outside of 24hr
-  if (hour < 0)
-  {
-    hour = 24 + hour;
-  }
-  else if (hour > 23)
-  {
-    hour = hour - 24;
-  }
-
+  */
+ 
   //converts to 12hr format
   #ifdef TWELVE_HOUR
     twelveHour(hour);
