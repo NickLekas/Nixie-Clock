@@ -1,4 +1,4 @@
-#include <Arduino.h>
+//#include <Arduino.h>
 
 //PCF8574 digit pin numbers
 //ones
@@ -12,6 +12,7 @@
 #define tensC 6
 #define tensD 7
 
-//GPS software serial pins
-#define gpsTX 8
-#define gpsRX 7
+//GPS pins
+#define gpsTX 4 //8
+#define gpsRX 3 //7
+#define gpsCtrl 5
