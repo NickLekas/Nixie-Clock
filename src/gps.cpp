@@ -6,6 +6,12 @@ Adafruit_GPS gps(&gpsSerial);
 
 //initializes the gps module
 void gpsInit() {
+    //sets the pin to tun the gps on and off
+    pinMode(gpsCtrl, OUTPUT);
+
+    //turns the gps on
+    gpsOn();
+
     //sets up the gps in RMC mode and 1Hz refresh
     gps.begin(9600);
     gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
@@ -50,4 +56,14 @@ void getGPSTime(int &seconds, int &minute, int &hour) {
     seconds = gps.seconds;
 
     return;
+}
+
+//turns the gps on
+void gpsOn() {
+    digitalWrite(gpsCtrl, true);
+}
+
+//turns the gps off
+void gpsOff() {
+    digitalWrite(gpsCtrl, false);
 }
