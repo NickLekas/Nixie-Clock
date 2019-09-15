@@ -1,4 +1,5 @@
-//#include <Arduino.h>
+#ifndef PINS_H
+#define PINS_H
 
 //PCF8574 digit pin numbers
 //ones
@@ -16,3 +17,5 @@
 #define gpsTX 4 //8
 #define gpsRX 3 //7
 #define gpsCtrl 5
+
+#endif
