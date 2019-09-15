@@ -47,6 +47,7 @@ void getGPSTime(int &seconds, int &minute, int &hour) {
     } while (gps.fix < 1 && !gps.newNMEAreceived());
 
     #ifdef GENERAL_DEBUG
+        //indacates when a satellite fix is aquired
         Serial.println("GPS fix found");
     #endif
 
@@ -55,15 +56,22 @@ void getGPSTime(int &seconds, int &minute, int &hour) {
     hour = gps.hour;
     seconds = gps.seconds;
 
+    //turns the gps off to save power
+    gpsOff();
+
     return;
 }
 
 //turns the gps on
 void gpsOn() {
     digitalWrite(gpsCtrl, true);
+
+    return;
 }
 
 //turns the gps off
 void gpsOff() {
     digitalWrite(gpsCtrl, false);
+
+    return;
 }

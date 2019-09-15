@@ -7,6 +7,9 @@ RTC_DS3231 rtc;
 void setRTCTime() {
     int seconds, minute, hour;
 
+    //turns the GPS on
+    gpsOn();
+
     //gets the time from the GPS
     getGPSTime(seconds, minute, hour);
 
@@ -58,10 +61,14 @@ void getRTCTime(int &minute, int &hour) {
 
 void updateRTC() {
     int cycleSpeed = 50;
-
+    
+    //cycles the display so all digets get used once each day to extend life of the tubes
     cycleDisplay(cycleSpeed);
 
+    //sets the RTC time with the GPS
     setRTCTime();
+
+    return;
 }
 
 //converts 24hr time to 12hr time
