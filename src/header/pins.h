@@ -14,8 +14,8 @@
 #define tensD 7
 
 //GPS pins
-#define gpsTX 4 //8
-#define gpsRX 3 //7
+#define gpsTX 4
+#define gpsRX 3
 #define gpsCtrl 5
 
 #endif

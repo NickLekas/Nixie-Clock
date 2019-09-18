@@ -90,11 +90,12 @@ void startup() {
 
   //sets the RTC time using the GPS
   setRTCTime();
-  //pulls the time from the RTC
-  getRTCTime(minute, hour);
 
   //cycles through the digits of the tubes for show
   cycleDisplay(delaySpeed);
+  
+  //pulls the time from the RTC
+  getRTCTime(minute, hour);
 
   //prints the time data
   #ifdef TIME_DEBUG

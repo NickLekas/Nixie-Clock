@@ -56,6 +56,14 @@ void getGPSTime(int &seconds, int &minute, int &hour) {
     hour = gps.hour;
     seconds = gps.seconds;
 
+    #ifdef TIME_DEBUG
+        Serial.print("GPS: ");
+        Serial.print(hour);
+        Serial.print(":");
+        Serial.print(minute);
+        Serial.print("\n");
+    #endif
+
     //turns the gps off to save power
     gpsOff();
 
