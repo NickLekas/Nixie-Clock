@@ -21,8 +21,7 @@ void setRTCTime() {
 
 //Pulls the time from the RTC and converts it to
 void getRTCTime(int &minute, int &hour) {
-    //bool update = true;
-
+    
     //gets the current time from the RTC
     DateTime now = rtc.now();
 
@@ -42,14 +41,9 @@ void getRTCTime(int &minute, int &hour) {
     }
 
     //updates the RTC time at 3am in the set timezone every day
-    /*
-    if(hour == 3 && minute == 0 && update == true) {
+    if(hour == 13 && minute == 55) {
         updateRTC();
-        update = false;
     }
-
-    update = true;
-    */
 
     //converts to 12hr format
     #ifdef TWELVE_HOUR
