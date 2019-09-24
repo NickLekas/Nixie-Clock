@@ -34,10 +34,10 @@ void getRTCTime(int &minute, int &hour) {
     hour += TIME_ZONE;
 
     //checks if the timezone compensated time is outside of 24hr
-    if (hour < 0) {
+    if(hour < 0) {
         hour += 24;
     }
-    else if (hour > 23) {
+    else if(hour > 23) {
         hour -= 24;
     }
 
@@ -73,10 +73,10 @@ void updateRTC() {
 
 //converts 24hr time to 12hr time
 void twelveHour(int &hour) {
-    if (hour == 0) {
+    if(hour == 0) {
         hour = 12;
     }
-    else if (hour > 12) {
+    else if(hour > 12) {
         hour -= 12;
     }
 

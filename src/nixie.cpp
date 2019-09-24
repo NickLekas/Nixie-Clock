@@ -36,7 +36,7 @@ void cycleDisplay(int &delaySpeed) {
         delaySpeed *= 1.25;
 
         cycle++;
-    } while (cycle < 4);
+    } while(cycle < 4);
 
     return;
 }

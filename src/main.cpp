@@ -36,12 +36,12 @@ void loop() {
 
   startup();
 
-  while (true) {
+  while(true) {
     //pulls time from the RTC
     getRTCTime(minute, hour);
 
     //checks if the time has changed from the last time get
-    if (last != minute) {
+    if(last != minute) {
       //parses the minute data for the tens and ones digits
       minOnes = minute % 10;
       minTens = (minute - minOnes) / 10;
@@ -73,7 +73,7 @@ void loop() {
       last = minute;
 
       //syncs the time updates to be every 60 seconds on the first loop and then sleeps the arduino ~60 seconds
-      if(loop < 1){
+      if(loop < 1) {
         loop++;
       }
       else {
