@@ -4,8 +4,8 @@
 #include <SoftwareSerial.h>
 #include <RTClib.h>
 
+#include "config.h"
 #include "header/pins.h"
-#include "header/config.h"
 #include "header/nixie.h"
 #include "header/gps.h"
 

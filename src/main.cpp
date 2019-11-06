@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
+#include "config.h"
 #include "header/pins.h"
-#include "header/config.h"
 #include "header/gps.h"
 #include "header/nixie.h"
 #include "header/rtc.h"

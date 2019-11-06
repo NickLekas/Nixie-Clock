@@ -32,6 +32,10 @@ void getRTCTime(int &minute, int &hour) {
     //converts from UTC to the desired time zone
     hour += TIME_ZONE;
 
+    #ifdef DAYLIGHT_SAVINGS
+        hour++;
+    #endif
+
     //checks if the timezone compensated time is outside of 24hr
     if(hour < 0) {
         hour += 24;
