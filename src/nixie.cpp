@@ -9,7 +9,7 @@ void nixieInit() {
     int i;
 
     //sets all the pins of the PCF8574 I/O expanders to outputs for cntrolling the nixie drivers
-    for (i = 0; i < 8; i++) {
+    for (i = onesA; i <= tensD; i++) {
         minute.pinMode(i, OUTPUT);
         hour.pinMode(i, OUTPUT);
     }
