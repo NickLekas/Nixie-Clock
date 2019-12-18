@@ -21,6 +21,7 @@ void setRTCTime() {
 
 //Pulls the time from the RTC and converts it to
 void getRTCTime(int &minute, int &hour) {
+    int timeZone = 0;
     
     //gets the current time from the RTC
     DateTime now = rtc.now();
@@ -29,12 +30,41 @@ void getRTCTime(int &minute, int &hour) {
     minute = now.minute();
     hour = now.hour();
 
+    /* old code based time zone setting
     //converts from UTC to the desired time zone
     hour += TIME_ZONE;
 
     #ifdef DAYLIGHT_SAVINGS
         hour++;
     #endif
+    */
+
+    //reads dip switch 2-5 as binary to calculate the time zone
+    if(digitalRead(eight) == LOW) {
+        timeZone += 8;
+    }
+    if(digitalRead(four) == LOW) {
+        timeZone += 4;
+    }
+    if(digitalRead(two) == LOW) {
+        timeZone += 2;
+    }
+    if(digitalRead(one) == LOW) {
+        timeZone += 1;
+    }
+  
+    //reads dip switch 1 for time zone to plus or minus
+    if(digitalRead(plusMinus) == HIGH){
+        timeZone *= -1;
+    }
+    
+    //reads dip dwitch 6 to enable or disable daylight savings mode
+    if(digitalRead(dst) == LOW) {
+        timeZone++;
+    }
+
+    //applies the time zone to the time from the GPS
+    hour += timeZone;  
 
     //checks if the timezone compensated time is outside of 24hr
     if(hour < 0) {
@@ -45,9 +75,12 @@ void getRTCTime(int &minute, int &hour) {
     }
 
     //updates the RTC time at 3am in the set timezone every day
+    //curently broken
+    /*
     if(hour == 13 && minute == 55) {
         updateRTC();
     }
+    */
 
     //converts to 12hr format
     #ifdef TWELVE_HOUR

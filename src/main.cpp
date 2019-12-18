@@ -15,6 +15,11 @@ void setup() {
     Serial.println("Starting");
   #endif
 
+  //sets the inputs for the time setting dip switches
+  for(int i = 8; i <= 13; i++) {
+    pinMode(i, INPUT_PULLUP);
+  }
+
   nixieInit();
   
   //sets the display to 0

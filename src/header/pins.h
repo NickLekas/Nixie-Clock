@@ -3,19 +3,31 @@
 
 //PCF8574 digit pin numbers
 //ones
-#define onesA 0
-#define onesB 1
-#define onesC 2
-#define onesD 3
+const int onesA = 0;
+const int onesB = 1;
+const int onesC = 2;
+const int onesD = 3;
 //tens
-#define tensA 4
-#define tensB 5
-#define tensC 6
-#define tensD 7
+const int tensA = 4;
+const int tensB = 5;
+const int tensC = 6;
+const int tensD = 7;
 
+//Arduino pin numbers
 //GPS pins
-#define gpsTX 4
-#define gpsRX 3
-#define gpsCtrl 5
+const int gpsTX = 4;
+const int gpsRX = 3;
+const int gpsCtrl = 5;
+
+//dip switch pins
+//time set pins
+const int plusMinus = 8;
+const int eight = 9;
+const int four = 10;
+const int two = 11;
+const int one = 12;
+const int dst = 13;
+//extra dip switch for feature expansion 
+
 
 #endif
