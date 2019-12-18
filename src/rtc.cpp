@@ -6,38 +6,13 @@ RTC_DS3231 rtc;
 //RTC time is stored as 24hr UTC time
 void setRTCTime() {
     int seconds, minute, hour;
+    int timeZone = 0;
 
     //turns the GPS on
     gpsOn();
 
     //gets the time from the GPS
     getGPSTime(seconds, minute, hour);
-
-    //stores the GPS time in the RTC, date is set to the start of UNIX time
-    rtc.adjust(DateTime(1970, 1, 1, hour, minute, seconds));
-
-    return;
-}
-
-//Pulls the time from the RTC and converts it to
-void getRTCTime(int &minute, int &hour) {
-    int timeZone = 0;
-    
-    //gets the current time from the RTC
-    DateTime now = rtc.now();
-
-    //pulls the RTC time
-    minute = now.minute();
-    hour = now.hour();
-
-    /* old code based time zone setting
-    //converts from UTC to the desired time zone
-    hour += TIME_ZONE;
-
-    #ifdef DAYLIGHT_SAVINGS
-        hour++;
-    #endif
-    */
 
     //reads dip switch 2-5 as binary to calculate the time zone
     if(digitalRead(eight) == LOW) {
@@ -73,6 +48,21 @@ void getRTCTime(int &minute, int &hour) {
     else if(hour > 23) {
         hour -= 24;
     }
+
+    //stores the GPS time in the RTC, date is set to the start of UNIX time
+    rtc.adjust(DateTime(1970, 1, 1, hour, minute, seconds));
+
+    return;
+}
+
+//Pulls the time from the RTC and converts it to
+void getRTCTime(int &minute, int &hour) {
+    //gets the current time from the RTC
+    DateTime now = rtc.now();
+
+    //pulls the RTC time
+    minute = now.minute();
+    hour = now.hour();
 
     //updates the RTC time at 3am in the set timezone every day
     //curently broken
