@@ -72,10 +72,16 @@ void getRTCTime(int &minute, int &hour) {
     }
     */
 
+    /* old 12 hour conversion
     //converts to 12hr format
     #ifdef TWELVE_HOUR
         twelveHour(hour);
     #endif
+    */
+
+    if(digitalRead(timeMode) == LOW) {
+        twelveHour(hour);
+    }
 
     return;
 }

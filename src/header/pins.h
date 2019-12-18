@@ -1,7 +1,8 @@
 #ifndef PINS_H
 #define PINS_H
 
-//PCF8574 digit pin numbers
+//PCF8574 pins
+//digit pin numbers
 //ones
 const int onesA = 0;
 const int onesB = 1;
@@ -13,7 +14,7 @@ const int tensB = 5;
 const int tensC = 6;
 const int tensD = 7;
 
-//Arduino pin numbers
+//Arduino pins
 //GPS pins
 const int gpsTX = 4;
 const int gpsRX = 3;
@@ -27,6 +28,7 @@ const int four = 10;
 const int two = 11;
 const int one = 12;
 const int dst = 13;
+const int timeMode = 0;
 //extra dip switch for feature expansion 
 
 

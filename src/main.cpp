@@ -9,6 +9,8 @@
 void startup(); //cyles the tubes and displays the current time at the end
 
 void setup() {
+  int i;
+
   Serial.begin(115200);
 
   #ifdef GENERAL_DEBUG
@@ -16,7 +18,9 @@ void setup() {
   #endif
 
   //sets the inputs for the time setting dip switches
-  for(int i = 8; i <= 13; i++) {
+  pinMode(timeMode, INPUT_PULLUP);
+
+  for(i = plusMinus; i <= dst; i++) {
     pinMode(i, INPUT_PULLUP);
   }
 
