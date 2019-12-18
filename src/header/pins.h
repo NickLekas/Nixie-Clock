@@ -22,13 +22,13 @@ const int gpsCtrl = 5;
 
 //dip switch pins
 //time set pins
-const int plusMinus = 8;
-const int eight = 9;
-const int four = 10;
-const int two = 11;
-const int one = 12;
-const int dst = 13;
-const int timeMode = 0;
+const int plusMinus = 6;
+const int eight = 7;
+const int four = 8;
+const int two = 9;
+const int one = 10;
+const int dst = 11;
+const int timeMode = 12;
 //extra dip switch for feature expansion 
 
 

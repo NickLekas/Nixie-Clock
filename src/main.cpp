@@ -18,9 +18,9 @@ void setup() {
   #endif
 
   //sets the inputs for the time setting dip switches
-  pinMode(timeMode, INPUT_PULLUP);
+  //pinMode(timeMode, INPUT_PULLUP);
 
-  for(i = plusMinus; i <= dst; i++) {
+  for(i = plusMinus; i <= timeMode; i++) {
     pinMode(i, INPUT_PULLUP);
   }
 
