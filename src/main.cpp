@@ -6,7 +6,7 @@
 #include "header/nixie.h"
 #include "header/rtc.h"
 
-void startup(); //cyles the tubes and displays the current time at the end
+void startUp(); //cyles the tubes and displays the current time at the end
 
 void setup() {
   int i;
@@ -16,9 +16,6 @@ void setup() {
   #ifdef GENERAL_DEBUG
     Serial.println("Starting");
   #endif
-
-  //sets the inputs for the time setting dip switches
-  //pinMode(timeMode, INPUT_PULLUP);
 
   for(i = plusMinus; i <= extra2; i++) {
     pinMode(i, INPUT_PULLUP);
@@ -31,10 +28,6 @@ void setup() {
   nixieDisplay(minTensA, minTensB, minTensC, minTensD, 0);
   nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, 0);
   nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, 0);
-  //nixieDisplayMinutes(onesA, onesB, onesC, onesD, 0);
-  //nixieDisplayMinutes(tensA, tensB, tensC, tensD, 0);
-  //nixieDisplayHours(onesA, onesB, onesC, onesD, 0);
-  //nixieDisplayHours(tensA, tensB, tensC, tensD, 0);
 
   gpsInit();
 
@@ -47,7 +40,7 @@ void loop() {
   int minOnes, minTens, hourOnes, hourTens;
   int last = -1, loop = 0;
 
-  startup();
+  startUp();
 
   while(true) {
     //pulls time from the RTC
@@ -66,14 +59,10 @@ void loop() {
       //writes the time data out to the minute gpio expander
       nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, minOnes);
       nixieDisplay(minTensA, minTensB, minTensC, minTensD, minTens);
-      //nixieDisplayMinutes(onesA, onesB, onesC, onesD, minOnes);
-      //nixieDisplayMinutes(tensA, tensB, tensC, tensD, minTens);
 
       //writes the time data out to the hour gpio expander
       nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, hourOnes);
       nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, hourTens);
-      //nixieDisplayHours(onesA, onesB, onesC, onesD, hourOnes);
-      //nixieDisplayHours(tensA, tensB, tensC, tensD, hourTens);
 
       //prints the time to the serial monitor
       #ifdef TIME_DEBUG
@@ -100,7 +89,7 @@ void loop() {
   }
 }
 
-void startup() {
+void startUp() {
   int minute, hour;
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
@@ -135,19 +124,15 @@ void startup() {
   for(i = 0; i < 10; i++) {
     if(i <= minOnes) {
       nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, i);
-      //nixieDisplayMinutes(onesA, onesB, onesC, onesD, i);
     }
     if(i <= minTens) {
       nixieDisplay(minTensA, minTensB, minTensC, minTensD, i);
-      //nixieDisplayMinutes(tensA, tensB, tensC, tensD, i);
     }
     if(i <= hourOnes) {
       nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, i);
-      //nixieDisplayHours(onesA, onesB, onesC, onesD, i);
     }
     if(i <= hourTens) {
       nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, i);
-      //nixieDisplayHours(tensA, tensB, tensC, tensD, i);
     }
 
     delay(delaySpeed);

@@ -8,6 +8,8 @@ void setRTCTime() {
     int seconds, minute, hour;
     int timeZone = 0;
 
+    rtc.begin();
+
     //turns the GPS on
     gpsOn();
 
