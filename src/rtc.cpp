@@ -64,21 +64,6 @@ void getRTCTime(int &minute, int &hour) {
     minute = now.minute();
     hour = now.hour();
 
-    //updates the RTC time at 3am in the set timezone every day
-    //curently broken
-    /*
-    if(hour == 13 && minute == 55) {
-        updateRTC();
-    }
-    */
-
-    /* old 12 hour conversion
-    //converts to 12hr format
-    #ifdef TWELVE_HOUR
-        twelveHour(hour);
-    #endif
-    */
-
     if(digitalRead(timeMode) == LOW) {
         twelveHour(hour);
     }

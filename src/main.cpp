@@ -20,17 +20,21 @@ void setup() {
   //sets the inputs for the time setting dip switches
   //pinMode(timeMode, INPUT_PULLUP);
 
-  for(i = plusMinus; i <= timeMode; i++) {
+  for(i = plusMinus; i <= extra2; i++) {
     pinMode(i, INPUT_PULLUP);
   }
 
   nixieInit();
   
   //sets the display to 0
-  nixieDisplayMinutes(onesA, onesB, onesC, onesD, 0);
-  nixieDisplayMinutes(tensA, tensB, tensC, tensD, 0);
-  nixieDisplayHours(onesA, onesB, onesC, onesD, 0);
-  nixieDisplayHours(tensA, tensB, tensC, tensD, 0);
+  nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, 0);
+  nixieDisplay(minTensA, minTensB, minTensC, minTensD, 0);
+  nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, 0);
+  nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, 0);
+  //nixieDisplayMinutes(onesA, onesB, onesC, onesD, 0);
+  //nixieDisplayMinutes(tensA, tensB, tensC, tensD, 0);
+  //nixieDisplayHours(onesA, onesB, onesC, onesD, 0);
+  //nixieDisplayHours(tensA, tensB, tensC, tensD, 0);
 
   gpsInit();
 
@@ -60,12 +64,16 @@ void loop() {
       hourTens = (hour - hourOnes) / 10;
 
       //writes the time data out to the minute gpio expander
-      nixieDisplayMinutes(onesA, onesB, onesC, onesD, minOnes);
-      nixieDisplayMinutes(tensA, tensB, tensC, tensD, minTens);
+      nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, minOnes);
+      nixieDisplay(minTensA, minTensB, minTensC, minTensD, minTens);
+      //nixieDisplayMinutes(onesA, onesB, onesC, onesD, minOnes);
+      //nixieDisplayMinutes(tensA, tensB, tensC, tensD, minTens);
 
       //writes the time data out to the hour gpio expander
-      nixieDisplayHours(onesA, onesB, onesC, onesD, hourOnes);
-      nixieDisplayHours(tensA, tensB, tensC, tensD, hourTens);
+      nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, hourOnes);
+      nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, hourTens);
+      //nixieDisplayHours(onesA, onesB, onesC, onesD, hourOnes);
+      //nixieDisplayHours(tensA, tensB, tensC, tensD, hourTens);
 
       //prints the time to the serial monitor
       #ifdef TIME_DEBUG
@@ -126,16 +134,20 @@ void startup() {
   //cycles trough all the digits until the the correct number is found
   for(i = 0; i < 10; i++) {
     if(i <= minOnes) {
-      nixieDisplayMinutes(onesA, onesB, onesC, onesD, i);
+      nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, i);
+      //nixieDisplayMinutes(onesA, onesB, onesC, onesD, i);
     }
     if(i <= minTens) {
-      nixieDisplayMinutes(tensA, tensB, tensC, tensD, i);
+      nixieDisplay(minTensA, minTensB, minTensC, minTensD, i);
+      //nixieDisplayMinutes(tensA, tensB, tensC, tensD, i);
     }
     if(i <= hourOnes) {
-      nixieDisplayHours(onesA, onesB, onesC, onesD, i);
+      nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, i);
+      //nixieDisplayHours(onesA, onesB, onesC, onesD, i);
     }
     if(i <= hourTens) {
-      nixieDisplayHours(tensA, tensB, tensC, tensD, i);
+      nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, i);
+      //nixieDisplayHours(tensA, tensB, tensC, tensD, i);
     }
 
     delay(delaySpeed);

@@ -1,35 +1,42 @@
 #ifndef PINS_H
 #define PINS_H
 
-//PCF8574 pins
-//digit pin numbers
-//ones
-const int onesA = 0;
-const int onesB = 1;
-const int onesC = 2;
-const int onesD = 3;
-//tens
-const int tensA = 4;
-const int tensB = 5;
-const int tensC = 6;
-const int tensD = 7;
-
-//Arduino pins
 //GPS pins
-const int gpsTX = 4;
-const int gpsRX = 3;
-const int gpsCtrl = 5;
+const int gpsCtrl = 4;
 
 //dip switch pins
 //time set pins
-const int plusMinus = 6;
-const int eight = 7;
-const int four = 8;
-const int two = 9;
-const int one = 10;
-const int dst = 11;
-const int timeMode = 12;
-//extra dip switch for feature expansion 
+const int plusMinus = 5;
+const int eight = 6;
+const int four = 7;
+const int two = 8;
+const int one = 9;
+const int dst = 10;
+const int timeMode = 11;
+//extra pins aloated for latter expansion
+const int extra1 = 12;
+const int extra2 = 13;
 
+//digit pins
+//minutes ones
+const int minOnesA = 34;
+const int minOnesB = 35;
+const int minOnesC = 36;
+const int minOnesD = 37;
+//minutes tens
+const int minTensA = 30;
+const int minTensB = 31;
+const int minTensC = 32;
+const int minTensD = 33;
+//hours ones
+const int hrOnesA = 26;
+const int hrOnesB = 27;
+const int hrOnesC = 28;
+const int hrOnesD = 29;
+//hours tens
+const int hrTensA = 22;
+const int hrTensB = 23;
+const int hrTensC = 24;
+const int hrTensD = 25;
 
 #endif

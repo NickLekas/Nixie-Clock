@@ -9,5 +9,6 @@ void nixieInit(); //initializes the gpio expanders
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers
 void nixieDisplayMinutes(int a, int b, int c, int d, int value); //outputs binary to the minute nixie drivers
 void nixieDisplayHours(int a, int b, int c, int d, int value); //outputs binary to the hourr nixie drivers
+void nixieDisplay(int a, int b, int c, int d, int value);
 
 #endif

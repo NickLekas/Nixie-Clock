@@ -1,7 +1,7 @@
 #include "header/gps.h"
 
 //sets up the gps
-SoftwareSerial gpsSerial(gpsTX, gpsRX);
+#define gpsSerial Serial1
 Adafruit_GPS gps(&gpsSerial);
 
 //initializes the gps module
