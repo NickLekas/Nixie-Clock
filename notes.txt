@@ -1,1 +1,1 @@
-New RTC library, has alarms for triggering sleep wakeup
+New RTC library, has alarms for triggering sleep wakeup https://github.com/JChristensen/DS3232RTC
