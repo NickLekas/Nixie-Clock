@@ -1,8 +1,6 @@
 #ifndef NIXIE_H
 #define NIXIE_H
 
-#include <PCF8574.h>
-
 #include "header/pins.h"
 
 void nixieInit(); //initializes the gpio expanders
