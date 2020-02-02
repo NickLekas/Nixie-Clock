@@ -237,8 +237,6 @@ void Adafruit_GPS::parseTime(char *p) {
 */
 /**************************************************************************/
 void Adafruit_GPS::parseLat(char *p) {
-  int32_t degree;
-  long minutes;
   char degreebuff[10];
     if (',' != *p)
     {
