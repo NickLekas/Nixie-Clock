@@ -1,10 +1,10 @@
 #include <Arduino.h>
 
 #include "config.h"
-#include "header/pins.h"
-#include "header/gps.h"
-#include "header/nixie.h"
-#include "header/rtc.h"
+#include "pins.h"
+#include "gps.h"
+#include "nixie.h"
+#include "rtc.h"
 
 void startUp(); //cyles the tubes and displays the current time at the end
 

@@ -1,4 +1,4 @@
-#include "header/rtc.h"
+#include "rtc.h"
 
 //sets up the real time clock
 RTC_DS3231 rtc;

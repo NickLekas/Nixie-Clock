@@ -1,4 +1,4 @@
-#include "header/gps.h"
+#include "gps.h"
 
 //sets up the gps
 #define gpsSerial Serial1

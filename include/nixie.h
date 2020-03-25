@@ -1,7 +1,9 @@
 #ifndef NIXIE_H
 #define NIXIE_H
 
-#include "header/pins.h"
+#include <Arduino.h>
+
+#include "pins.h"
 
 void nixieInit(); //initializes the gpio expanders
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers

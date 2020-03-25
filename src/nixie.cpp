@@ -1,4 +1,4 @@
-#include "header/nixie.h"
+#include "nixie.h"
 
 //initializes the gpio expanders
 void nixieInit() {
