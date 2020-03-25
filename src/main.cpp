@@ -38,61 +38,52 @@ void setup() {
 void loop() {
   int minute, hour;
   int minOnes, minTens, hourOnes, hourTens;
-  int last = -1, loop = 0;
 
   startUp();
 
   while(true) {
+    //sets the brightness of the nixie tubes based on ambient light
+    dimming();
+
     //pulls time from the RTC
     getRTCTime(minute, hour);
 
-    //checks if the time has changed from the last time get
-    if(last != minute) {
-      //parses the minute data for the tens and ones digits
-      minOnes = minute % 10;
-      minTens = (minute - minOnes) / 10;
+    //parses the minute data for the tens and ones digits
+    minOnes = minute % 10;
+    minTens = (minute - minOnes) / 10;
 
-      //parses the hour data for the tens and ones digits
-      hourOnes = hour % 10;
-      hourTens = (hour - hourOnes) / 10;
+    //parses the hour data for the tens and ones digits
+    hourOnes = hour % 10;
+    hourTens = (hour - hourOnes) / 10;
 
-      //writes the time data out to the minute gpio expander
-      nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, minOnes);
-      nixieDisplay(minTensA, minTensB, minTensC, minTensD, minTens);
+    //writes the time data out to the minute gpio expander
+    nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, minOnes);
+    nixieDisplay(minTensA, minTensB, minTensC, minTensD, minTens);
 
-      //writes the time data out to the hour gpio expander
-      nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, hourOnes);
-      nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, hourTens);
+    //writes the time data out to the hour gpio expander
+    nixieDisplay(hrOnesA, hrOnesB, hrOnesC, hrOnesD, hourOnes);
+    nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, hourTens);
 
-      //prints the time to the serial monitor
-      #ifdef TIME_DEBUG
-        Serial.print("RTC Time: ");
-        Serial.print(hourTens);
-        Serial.print(hourOnes);
-        Serial.print(":");
-        Serial.print(minTens);
-        Serial.print(minOnes);
-        Serial.print("\n");
-      #endif
-
-      //keeps track of the previous minute to compare with the next gps read cycle
-      last = minute;
-
-      //syncs the time updates to be every 60 seconds on the first loop and then sleeps the arduino ~60 seconds
-      if(loop < 1) {
-        loop++;
-      }
-      else {
-        delay(58500);
-      }
+    //prints the time to the serial monitor
+    #ifdef TIME_DEBUG
+      Serial.print("RTC Time: ");
+      Serial.print(hourTens);
+      Serial.print(hourOnes);
+      Serial.print(":");
+      Serial.print(minTens);
+      Serial.print(minOnes);
+      Serial.print("\n");
+    #endif
     }
   }
-}
 
 void startUp() {
   int minute, hour;
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
+
+  //sets the brightness of the nixie tubes based on ambient light
+  dimming();
 
   //sets the RTC time using the GPS
   setRTCTime();
