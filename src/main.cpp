@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include "config.h"
+#include "debug.h"
 #include "pins.h"
 #include "gps.h"
 #include "nixie.h"

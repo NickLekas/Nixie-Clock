@@ -1,5 +1,5 @@
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef DEBUG_H
+#define DEBUG_H
 
 //debug options, setting to true prints debug data to the console
 //#define FIX_DEBUG //prints if gps fix data

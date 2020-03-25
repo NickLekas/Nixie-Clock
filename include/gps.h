@@ -3,7 +3,7 @@
 
 #include <Adafruit_GPS.h>
 
-#include "config.h"
+#include "debug.h"
 #include "pins.h"
 
 void gpsInit(); //initializes the gps module

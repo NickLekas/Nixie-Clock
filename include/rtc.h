@@ -4,7 +4,7 @@
 #include <SoftwareSerial.h>
 #include <RTClib.h>
 
-#include "config.h"
+#include "debug.h"
 #include "pins.h"
 #include "nixie.h"
 #include "gps.h"
