@@ -6,6 +6,7 @@
 #include "pins.h"
 
 void nixieInit(); //initializes the gpio expanders
+void dimming();
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers
 void nixieDisplay(int a, int b, int c, int d, int value);
 

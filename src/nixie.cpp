@@ -9,6 +9,20 @@ void nixieInit() {
         pinMode(i, OUTPUT);
     }
 
+    pinMode(dim, OUTPUT);
+    pinMode(light, INPUT);
+
+    return;
+}
+
+void dimming() {
+    int lightValue, PWM;
+    
+    lightValue = analogRead(light);
+    PWM = lightValue / 2;
+
+    analogWrite(dim, PWM);
+
     return;
 }
 
