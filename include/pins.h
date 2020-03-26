@@ -4,20 +4,20 @@
 //GPS pins
 const int gpsCtrl = 4;
 
-//dimming pin
+//dimming pins
 const int dim = 3;
 const int light = A0;
 
 //dip switch pins
 //time set pins
-const int plusMinus = 5;
-const int eight = 6;
-const int four = 7;
-const int two = 8;
-const int one = 9;
-const int dst = 10;
-const int timeMode = 11;
-//extra pins aloated for latter expansion
+const int plusMinus = 5; //1
+const int eight = 6; //2
+const int four = 7; //3
+const int two = 8; //4
+const int one = 9; //5
+const int dst = 10; //6
+const int timeMode = 11; //7
+//extra pins allotted for latter expansion
 const int extra1 = 12;
 const int extra2 = 13;
 
