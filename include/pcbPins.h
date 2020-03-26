@@ -44,4 +44,7 @@ const int hrTensB = 48; //PL1
 const int hrTensC = 49; //PL0
 const int hrTensD = 47; //PL2
 
+//RTC
+const int rtcInt = 2; //PE4
+
 #endif

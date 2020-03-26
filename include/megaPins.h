@@ -44,4 +44,7 @@ const int hrTensB = 23;
 const int hrTensC = 24;
 const int hrTensD = 25;
 
+//RTC
+const int rtcInt = 2;
+
 #endif
