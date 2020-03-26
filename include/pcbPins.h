@@ -7,20 +7,21 @@ const int gpsCtrl = 30; //PC7
 
 //dimming pins
 const int dim = 4; //PG5
-const int light = A0; //PF0
+const int light = 54; //A0 PF0
 
 //dip switch pins
 //time set pins
-const int plusMinus = 6; //1 PH3
-const int eight = 7; //2 PH4
-const int four = 8; //3 PH5
-const int two = 9; //4 PH6
-const int one = 53; //5 PB0
-const int dst = 52; //6 PB1
-const int timeMode = 51; //7 PB2
+const int plusMinus = 17; //1 PH0
+const int eight = 16; //2 PH1
+const int four = 6; //3 PH3
+const int two = 7; //4 PH4
+const int one = 8; //5 PH5
+const int dst = 9; //6 PH6
+const int timeMode = 10; //7 PB4
 //extra pins allotted for latter potential expansion
-const int extra1 = 50; //PB3
-const int extra2 = 10; //PB4
+const int extra1 = 11; //8 PB5
+const int extra2 = 12; //9 PB6
+const int extra3 = 13; //10 PB7
 
 //digit pins
 //minutes ones

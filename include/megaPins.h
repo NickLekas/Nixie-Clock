@@ -7,7 +7,7 @@ const int gpsCtrl = 4;
 
 //dimming pins
 const int dim = 3;
-const int light = A0;
+const int light = 54; //A0
 
 //dip switch pins
 //time set pins
