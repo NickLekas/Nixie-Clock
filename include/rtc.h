@@ -5,9 +5,13 @@
 #include <RTClib.h>
 
 #include "debug.h"
-#include "pins.h"
 #include "nixie.h"
 #include "gps.h"
+#ifdef PCB
+  #include "pcbPins.h"
+#else
+  #include "megaPins.h"
+#endif
 
 void getRTCTime(int &minute, int &hour); //reads the time data from the RTC
 void setRTCTime(); //sets the RTC time using the GPS

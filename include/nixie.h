@@ -2,8 +2,12 @@
 #define NIXIE_H
 
 #include <Arduino.h>
-
-#include "pins.h"
+#include "debug.h"
+#ifdef PCB
+  #include "pcbPins.h"
+#else
+  #include "megaPins.h"
+#endif
 
 void nixieInit(); //initializes the gpio expanders
 void dimming();

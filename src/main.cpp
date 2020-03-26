@@ -1,10 +1,15 @@
 #include <Arduino.h>
 
 #include "debug.h"
-#include "pins.h"
 #include "gps.h"
 #include "nixie.h"
 #include "rtc.h"
+#ifdef PCB
+  #include "pcbPins.h"
+#else
+  #include "megaPins.h"
+#endif
+
 
 void startUp(); //cyles the tubes and displays the current time at the end
 

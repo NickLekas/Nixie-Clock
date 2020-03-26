@@ -1,7 +1,8 @@
-#ifndef PINS_H
-#define PINS_H
+#ifndef PCBPINS_H
+#define PCBPINS_H
 
 //GPS pins
+#define gpsSerial Serial1
 const int gpsCtrl = 4;
 
 //dimming pins

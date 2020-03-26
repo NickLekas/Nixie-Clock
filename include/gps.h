@@ -4,7 +4,11 @@
 #include <Adafruit_GPS.h>
 
 #include "debug.h"
-#include "pins.h"
+#ifdef PCB
+  #include "pcbPins.h"
+#else
+  #include "megaPins.h"
+#endif
 
 void gpsInit(); //initializes the gps module
 void getGPSTime(int &seconds, int &minute, int &hour); //reads the time data from the gps and applies the time zone

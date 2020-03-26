@@ -6,4 +6,7 @@
 #define TIME_DEBUG //prints the most recent time update
 #define GENERAL_DEBUG //prints general debug messages
 
+//enables the pinout for the PCB clock instead of the MEGA
+//#define PCB
+
 #endif
