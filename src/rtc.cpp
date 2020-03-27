@@ -6,7 +6,6 @@ RTC_DS3231 rtc;
 //RTC time is stored as 24hr UTC time
 void setRTCTime() {
     int seconds, minute, hour;
-    int timeZone = 0;
 
     rtc.begin();
 
@@ -36,6 +35,14 @@ void getRTCTime(int &minute, int &hour) {
     readSettings(timeZone);
 
     hour += timeZone;
+
+    //checks if the timezone compensated time is outside of 24hr
+    if(hour < 0) {
+        hour += 24;
+    }
+    else if(hour > 23) {
+        hour -= 24;
+    }
 
     if(digitalRead(timeMode) == LOW) {
         twelveHour(hour);
@@ -89,14 +96,6 @@ void readSettings(int &timeZone) {
     //reads dip dwitch 6 to enable or disable daylight savings mode
     if(digitalRead(dst) == LOW) {
         timeZone++;
-    }
-  
-    //checks if the timezone compensated time is outside of 24hr
-    if(timeZone < 0) {
-        timeZone += 24;
-    }
-    else if(timeZone > 23) {
-        timeZone -= 24;
     }
 
     return;
