@@ -17,5 +17,6 @@ void getRTCTime(int &minute, int &hour); //reads the time data from the RTC
 void setRTCTime(); //sets the RTC time using the GPS
 void twelveHour(int &hour); //converts the time from 24hr to 12hr
 void updateRTC();
+void readSettings(int &timeZone); //pulls the current dip switch settings for the time zone
 
 #endif
