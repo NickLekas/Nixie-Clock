@@ -27,6 +27,8 @@ void setup() {
   }
 
   nixieInit();
+
+  dimming();
   
   //sets the display to 0
   nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, 0);
