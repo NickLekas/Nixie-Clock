@@ -16,10 +16,12 @@ void nixieInit() {
 }
 
 void dimming() {
-    int lightValue, PWM;
+    int lightValue, PWM, temp;
     
     lightValue = analogRead(light);
-    PWM = lightValue / 2;
+    
+    temp = 1024 - lightValue;
+    PWM = temp / 4;
 
     analogWrite(dim, PWM);
 
