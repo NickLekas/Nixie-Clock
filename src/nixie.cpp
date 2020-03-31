@@ -16,14 +16,27 @@ void nixieInit() {
 }
 
 void dimming() {
-    int lightValue, PWM, temp;
+    int lightValue, PWM, invert;
+    int minValue = 50;
+    int maxValue = 235;
     
-    lightValue = analogRead(light);
+    lightValue = analogRead(light); //reads the LDR analog pin
     
-    temp = 1024 - lightValue;
-    PWM = temp / 4;
+    invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
 
-    analogWrite(dim, PWM);
+    PWM = invert / 4; //converts the ADC 12-bit value to 8-bit for PWM
+
+    //keeps the voltage on the tubes from dropping to low to ignite fully/at all
+    if(PWM < minValue) {
+        PWM = minValue;
+    }
+
+    //pulls the PWM value to max since the voltage divider will never/rarely ever reach max
+    if(PWM > maxValue) {
+        PWM = 255;
+    }
+    
+    analogWrite(dim, PWM); //writes the PWM value
 
     return;
 }
@@ -49,6 +62,7 @@ void cycleDisplay(int &delaySpeed) {
 
     return;
 }
+
 
 void nixieDisplay(int a, int b, int c, int d, int value) {
     digitalWrite(d, (value & 0x08) >> 3);
