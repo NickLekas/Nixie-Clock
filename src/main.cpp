@@ -28,6 +28,8 @@ void setup() {
 
   nixieInit();
 
+  dimmingInit();
+
   dimming();
   
   //sets the display to 0

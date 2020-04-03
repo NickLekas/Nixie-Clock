@@ -15,6 +15,15 @@ void nixieInit() {
     return;
 }
 
+//sets the PWM frequency of the dimming pin
+void dimmingInit() {
+    InitTimersSafe();
+    //(16MHz / 1024) / 256 = 61.03515625
+    SetPinFrequencySafe(dim, 61.03515625);
+
+    return;
+}
+
 void dimming() {
     int lightValue, PWM, invert;
     int minValue = 50;
@@ -35,8 +44,8 @@ void dimming() {
     if(PWM > maxValue) {
         PWM = 255;
     }
-    
-    analogWrite(dim, PWM); //writes the PWM value
+
+    pwmWrite(dim, PWM); //writes the PWM value
 
     return;
 }

@@ -2,6 +2,8 @@
 #define NIXIE_H
 
 #include <Arduino.h>
+#include <PWM.h>
+
 #include "debug.h"
 #ifdef PCB
   #include "pcbPins.h"
@@ -10,8 +12,9 @@
 #endif
 
 void nixieInit(); //initializes the gpio expanders
-void dimming();
+void dimmingInit(); //initializes the PWM frequency and pin
+void dimming(); //dimms the nixie tubes based on ambient light
 void cycleDisplay(int &delaySpeed); //cycles the tubes thorugh all numbers
-void nixieDisplay(int a, int b, int c, int d, int value);
+void nixieDisplay(int a, int b, int c, int d, int value); //displays a number on a dube based on binary pins and given number
 
 #endif
