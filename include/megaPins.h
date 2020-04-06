@@ -11,16 +11,13 @@ const int light = 54; //A0
 
 //dip switch pins
 //time set pins
-const int plusMinus = 5; //1
-const int eight = 6; //2
-const int four = 7; //3
-const int two = 8; //4
-const int one = 9; //5
-const int dst = 10; //6
-const int timeMode = 11; //7
-//extra pins allotted for latter expansion
-const int extra1 = 12;
-const int extra2 = 13;
+const int dst = 5; //1
+const int timeMode = 6; //2
+const int plusMinus = 7; //3
+const int eight = 8; //4
+const int four = 9; //5
+const int two = 10; //6
+const int one = 11; //7
 
 //digit pins
 //minutes ones

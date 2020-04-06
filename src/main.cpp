@@ -22,7 +22,7 @@ void setup() {
     Serial.println("Starting");
   #endif
 
-  for(i = plusMinus; i <= extra2; i++) {
+  for(i = dst; i <= one; i++) {
     pinMode(i, INPUT_PULLUP);
   }
 
