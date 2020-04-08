@@ -24,9 +24,11 @@ void dimmingInit() {
     return;
 }
 
+
+//photoresistor code
 void dimming() {
     int lightValue, PWM, invert;
-    int minValue = 50;
+    int minValue = 5;
     int maxValue = 235;
     
     lightValue = analogRead(light); //reads the LDR analog pin
@@ -45,10 +47,30 @@ void dimming() {
         PWM = 255;
     }
 
+    //Serial.println(PWM);
+
     pwmWrite(dim, PWM); //writes the PWM value
 
     return;
 }
+
+
+/*
+//pot testing code
+void dimming() {
+    int lightValue, PWM;
+
+    lightValue = analogRead(light);
+
+    PWM = lightValue / 4;
+
+    Serial.println(PWM);
+
+    pwmWrite(dim, PWM);
+
+    return;
+}
+*/
 
 void cycleDisplay(int &delaySpeed) {
     int i, cycle = 0;
