@@ -29,7 +29,7 @@ void dimmingInit() {
 void dimming() {
     int lightValue, PWM, invert;
     int minValue = 5;
-    int maxValue = 235;
+    int maxValue = 210;
     
     lightValue = analogRead(light); //reads the LDR analog pin
     
