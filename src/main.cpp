@@ -39,9 +39,6 @@ void setup() {
   nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, 0);
 
   gpsInit();
-
-  //gives the gps 1 second to start up
-  delay(1000);
 }
 
 void loop() {

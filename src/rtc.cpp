@@ -9,7 +9,8 @@ RTC_DS3231 rtc;
 void RTCInit() {
     rtc.begin();
 
-    if(!rtc.lostPower()) {
+    if(rtc.lostPower()) {
+        Serial.println("power loss");
         setRTCTime();
     }
 
