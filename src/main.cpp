@@ -30,7 +30,7 @@ void setup() {
 
   dimmingInit();
 
-  dimming();
+  //dimming();
   
   //sets the display to 0
   nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, 0);
@@ -39,9 +39,6 @@ void setup() {
   nixieDisplay(hrTensA, hrTensB, hrTensC, hrTensD, 0);
 
   gpsInit();
-
-  //gives the gps 1 second to start up
-  delay(1000);
 }
 
 void loop() {
@@ -92,10 +89,10 @@ void startUp() {
   int i, delaySpeed = 50;
 
   //sets the brightness of the nixie tubes based on ambient light
-  dimming();
+  //dimming();
 
   //sets the RTC time using the GPS
-  setRTCTime();
+  RTCInit();
 
   //cycles through the digits of the tubes for show
   cycleDisplay(delaySpeed);

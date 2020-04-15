@@ -16,6 +16,10 @@ void gpsInit() {
     gps.sendCommand(PMTK_SET_NMEA_OUTPUT_RMCONLY);
     gps.sendCommand(PMTK_SET_NMEA_UPDATE_1HZ);
 
+    delay(1000);
+
+    gpsOff();
+
     return;
 }
 
