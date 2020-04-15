@@ -29,8 +29,6 @@ void setup() {
   nixieInit();
 
   dimmingInit();
-
-  //dimming();
   
   //sets the display to 0
   nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, 0);
@@ -88,11 +86,10 @@ void startUp() {
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
 
-  //sets the brightness of the nixie tubes based on ambient light
-  //dimming();
-
   //sets the RTC time using the GPS
   RTCInit();
+
+  dimDown();
 
   //cycles through the digits of the tubes for show
   cycleDisplay(delaySpeed);

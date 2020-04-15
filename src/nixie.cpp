@@ -27,6 +27,27 @@ void dimmingInit() {
     return;
 }
 
+void dimDown() {
+    int lightValue, PWM, invert, i;
+    int minValue = 5;
+    int fade = 10;
+
+    lightValue = analogRead(light); //reads the LDR analog pin
+    
+    invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
+
+    PWM = invert / 4; //converts the ADC 12-bit value to 8-bit for PWM
+
+    //keeps the voltage on the tubes from dropping to low to ignite fully/at all
+    if(PWM < minValue) {
+        PWM = minValue;
+    }
+
+    for(i = 255; i > PWM; i--) {
+        pwmWrite(dim, i);
+        delay(fade);
+    }
+}
 
 //photoresistor code
 void dimming() {
