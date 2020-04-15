@@ -3,11 +3,25 @@
 //sets up the real time clock
 RTC_DS3231 rtc;
 
+//enables the RTC and checks for power loss
+//if there is power loss, sets time using the GPS
+//if no power loss, useses last know time and will be updated at 3am local time
+void RTCInit() {
+    rtc.begin();
+
+    if(!rtc.lostPower()) {
+        setRTCTime();
+    }
+
+    return;
+}
+
 //RTC time is stored as 24hr UTC time
 void setRTCTime() {
     int seconds, minute, hour;
 
-    rtc.begin();
+    //
+    gpsInit();
 
     //turns the GPS on
     gpsOn();

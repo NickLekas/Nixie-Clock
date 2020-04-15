@@ -95,7 +95,7 @@ void startUp() {
   dimming();
 
   //sets the RTC time using the GPS
-  setRTCTime();
+  RTCInit();
 
   //cycles through the digits of the tubes for show
   cycleDisplay(delaySpeed);
