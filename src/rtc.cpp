@@ -21,9 +21,6 @@ void RTCInit() {
 void setRTCTime() {
     int seconds, minute, hour;
 
-    //
-    gpsInit();
-
     //turns the GPS on
     gpsOn();
 
