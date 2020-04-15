@@ -21,6 +21,9 @@ void dimmingInit() {
     //(16MHz / 1024) / 256 = 61.03515625
     SetPinFrequencySafe(dim, 61.03515625);
 
+    //sets the starting brightness to max during startup
+    pwmWrite(255, dim);
+
     return;
 }
 

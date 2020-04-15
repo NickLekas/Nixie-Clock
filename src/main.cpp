@@ -30,7 +30,7 @@ void setup() {
 
   dimmingInit();
 
-  dimming();
+  //dimming();
   
   //sets the display to 0
   nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, 0);
@@ -92,7 +92,7 @@ void startUp() {
   int i, delaySpeed = 50;
 
   //sets the brightness of the nixie tubes based on ambient light
-  dimming();
+  //dimming();
 
   //sets the RTC time using the GPS
   RTCInit();
