@@ -51,11 +51,18 @@ void dimDown() {
 
 //photoresistor code
 void dimming() {
-    int lightValue, PWM, invert;
+    int lightValue, PWM, invert, readValue, sum;
     int minValue = 5;
     int maxValue = 210;
+    int loop = 10;
     
-    lightValue = analogRead(light); //reads the LDR analog pin
+    for(int i = 0; i <= loop; i++){
+        readValue = analogRead(light); //reads the LDR analog pin
+
+        sum += readValue;
+    }
+
+    lightValue = sum / 10;
     
     invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
 
