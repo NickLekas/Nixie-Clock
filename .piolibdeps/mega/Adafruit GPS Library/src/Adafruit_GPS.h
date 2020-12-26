@@ -39,7 +39,7 @@
 #endif
 #endif
 
-#define USE_SW_SERIAL ///< comment this out if you don't want to include
+//#define USE_SW_SERIAL ///< comment this out if you don't want to include
                       ///< software serial in the library
 #define GPS_DEFAULT_I2C_ADDR                                                   \
   0x10 ///< The default address for I2C transport of GPS data
