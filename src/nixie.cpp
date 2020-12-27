@@ -4,7 +4,7 @@
 void nixieInit() {
     int i;
 
-    //sets all the pins of the PCF8574 I/O expanders to outputs for cntrolling the nixie drivers
+    //sets all the pins for the nixie drivers as outputs
     for (i = hrTensA; i <= minOnesD; i++) {
         pinMode(i, OUTPUT);
     }
@@ -20,6 +20,8 @@ void dimmingInit() {
     InitTimersSafe();
     //(16MHz / 1024) / 256 = 61.03515625
     SetPinFrequencySafe(dim, 61.03515625);
+    //SetPinFrequencySafe(dim, 70);
+
 
     //sets the starting brightness to max during startup
     pwmWrite(dim, 255);
@@ -51,18 +53,11 @@ void dimDown() {
 
 //photoresistor code
 void dimming() {
-    int lightValue, PWM, invert, readValue, sum;
+    int lightValue, PWM, invert;
     int minValue = 5;
     int maxValue = 210;
-    int loop = 10;
     
-    for(int i = 0; i <= loop; i++){
-        readValue = analogRead(light); //reads the LDR analog pin
-
-        sum += readValue;
-    }
-
-    lightValue = sum / 10;
+    lightValue = analogRead(light);
     
     invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
 
