@@ -1,6 +1,6 @@
 #include "nixie.h"
 
-//initializes the gpio expanders
+//Sets the bin to dec pins of the arduino as outputs
 void nixieInit() {
     int i;
 
@@ -17,11 +17,11 @@ void nixieInit() {
 
 //sets the PWM frequency of the dimming pin
 void dimmingInit() {
+    //initializes all timers except timer 0
     InitTimersSafe();
-    //(16MHz / 1024) / 256 = 61.03515625
-    SetPinFrequencySafe(dim, 61.03515625);
-    //SetPinFrequencySafe(dim, 70);
 
+    //Sets the PWM frequency to 350Hz
+    SetPinFrequencySafe(dim, 350);
 
     //sets the starting brightness to max during startup
     pwmWrite(dim, 255);
@@ -54,10 +54,11 @@ void dimDown() {
 //photoresistor code
 void dimming() {
     int lightValue, PWM, invert;
+    int maxPWM = 255;
     int minValue = 5;
-    int maxValue = 210;
+    int maxValue = 235;
     
-    lightValue = analogRead(light);
+    lightValue = analogRead(light); //reads the current vanalog value of the LDR and stores it in lightValue
     
     invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
 
@@ -70,7 +71,7 @@ void dimming() {
 
     //pulls the PWM value to max since the voltage divider will never/rarely ever reach max
     if(PWM > maxValue) {
-        PWM = 255;
+        PWM = maxPWM;
     }
 
     //Serial.println(PWM);
