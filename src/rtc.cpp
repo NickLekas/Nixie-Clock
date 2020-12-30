@@ -1,95 +1,94 @@
 #include "rtc.h"
 
-//sets up the real time clock
-RTC_DS3231 rtc;
+RTC_DS3231 rtc;                                                 // Initializes the RTC object
 
-//enables the RTC and checks for power loss
-//if there is power loss, sets time using the GPS
-//if no power loss, useses last know time and will be updated at 3am local time
+// Enables the RTC and checks for power loss
+// If there was a power loss, sets time using the GPS
+// If no power loss, useses last know time and will be updated at 3am local time
 void RTCInit() {
-    rtc.begin();
+    rtc.begin();                                                // Initializes the RTC
 
-    if(rtc.lostPower()) {
-        Serial.println("power loss");
-        setRTCTime();
+    if(rtc.lostPower()) {                                       // Checks if the RTC lost power
+        #ifdef TIME_DEBUG                                       // Prints that power was lost to the serial monitor
+            Serial.println("power loss");
+        #endif
+        setRTCTime();                                           // Sets the RTC time using the GPS
     }
 
     return;
 }
 
-//RTC time is stored as 24hr UTC time
+// RTC time is stored as 24hr UTC time
 void setRTCTime() {
     int seconds, minute, hour;
 
-    //turns the GPS on
-    gpsOn();
+    gpsOn();                                                    // Turns on the GPS
 
-    //gets the time from the GPS
-    getGPSTime(seconds, minute, hour);
+    getGPSTime(seconds, minute, hour);                          // Gets the current time from the GPS
 
-    //stores the GPS time in the RTC, date is set to the start of UNIX time
-    rtc.adjust(DateTime(1970, 1, 1, hour, minute, seconds));
+    rtc.adjust(DateTime(1970, 1, 1, hour, minute, seconds));    // Stores the GPS time in the RTC, sets the date to the start of UNIX time since the data isn't needed
 
     return;
 }
 
-//Pulls the time from the RTC and converts it to
+// Gets the time from the RTC and converts it to the the users time zone and to 12 Hr formtat if selected
 void getRTCTime(int &minute, int &hour) {
     int timeZone;
 
-    //gets the current time from the RTC
-    DateTime now = rtc.now();
+    DateTime now = rtc.now();                                   // Gets the current time from the RTC
 
     //pulls the RTC time
-    minute = now.minute();
-    hour = now.hour();
+    minute = now.minute();                                      // Gets the current minute from the fetched RTC data
+    hour = now.hour();                                          // Gets the current hour from the fetched RTC data
 
-    readSettings(timeZone);
+    readSettings(timeZone);                                     // Reads the switch settings for the set time zone
 
-    hour += timeZone;
+    hour += timeZone;                                           // Applies the time zone value to the hour
 
-    //checks if the timezone compensated time is outside of 24hr
-    if(hour < 0) {
-        hour += 24;
+    
+    if(hour < 0) {                                              // Checks if the adjusted time is less than 24
+        hour += 24;                                             // If the adjusted time is less than 0, add 24                
     }
-    else if(hour > 23) {
-        hour -= 24;
+    else if(hour > 23) {                                        // Checks if the adjusted time is greater than 24
+        hour -= 24;                                             // If the adjusted time is greater than 24, subtract 24
     }
 
-    if(digitalRead(timeMode) == LOW) {
-        twelveHour(hour);
+    if(digitalRead(timeMode) == LOW) {                          // Checks if the 12 hour switch is toggled
+        twelveHour(hour);                                       // Converts the time to 12 Hr format
     }
 
     return;
 }
 
+// Updates the RTC time using the GPS and maintains the tubes
+// This will occur every day at 3am local time when the user is likely asleep
 void updateRTC() {
     int cycleSpeed = 50;
-    
-    //cycles the display so all digets get used once each day to extend life of the tubes
-    cycleDisplay(cycleSpeed);
 
-    //sets the RTC time with the GPS
-    setRTCTime();
+    cycleDisplay(cycleSpeed);                                   // Cycles the display so all digets get used once each day to extend their life
+
+    setRTCTime();                                               // Updates the RTC using the GPS
 
     return;
 }
 
 //converts 24hr time to 12hr time
 void twelveHour(int &hour) {
-    if(hour == 0) {
-        hour = 12;
+    if(hour == 0) {                                             // Checks if the hour is 0
+        hour = 12;                                              // Sets the hour to 12 if it's 0
     }
-    else if(hour > 12) {
-        hour -= 12;
+    else if(hour > 12) {                                        // Checks if the hour is greater than 12
+        hour -= 12;                                             // Subtracts 12 from the hour if it's greater than 12
     }
 
     return;
 }
 
+// Reads settings switches 3-7 as 5-bit signed binary to set the time zone
+// Reads each bit and sums the decimal values to set the time zone
 void readSettings(int &timeZone) {
-    //reads dip switch 1-5 as signed binary to calculate the time zone
-    if(digitalRead(plusMinus) == HIGH){
+
+    if(digitalRead(plusMinus) == HIGH){                         // Reads each switch one at a time                    
         timeZone += -16;
     }
     if(digitalRead(eight) == LOW) {
@@ -104,9 +103,8 @@ void readSettings(int &timeZone) {
     if(digitalRead(one) == LOW) {
         timeZone += 1;
     }
-  
-    //reads dip dwitch 6 to enable or disable daylight savings mode
-    if(digitalRead(dst) == LOW) {
+
+    if(digitalRead(dst) == LOW) {                               // Reads dip dwitch 1 to add an hour for daylight savings time
         timeZone++;
     }
 
