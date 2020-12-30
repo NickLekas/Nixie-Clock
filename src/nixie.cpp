@@ -21,7 +21,7 @@ void dimmingInit() {
     InitTimersSafe();
 
     //Sets the PWM frequency to 350Hz
-    SetPinFrequencySafe(dim, 350);
+    SetPinFrequencySafe(dim, 75);
 
     //sets the starting brightness to max during startup
     pwmWrite(dim, 255);
@@ -30,22 +30,20 @@ void dimmingInit() {
 }
 
 void dimDown() {
-    int lightValue, PWM, invert, i;
-    int minValue = 5;
+    int lightValue, PWM, i;
+    int maxPWM = 245;
     int fade = 10;
 
     lightValue = analogRead(light); //reads the LDR analog pin
     
-    invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
-
-    PWM = invert / 4; //converts the ADC 12-bit value to 8-bit for PWM
+    PWM = lightValue / 4; //converts the ADC 12-bit value to 8-bit for PWM
 
     //keeps the voltage on the tubes from dropping to low to ignite fully/at all
-    if(PWM < minValue) {
-        PWM = minValue;
+    if(PWM > maxPWM) {
+        PWM = maxPWM;
     }
 
-    for(i = 255; i > PWM; i--) {
+    for(i = 0; i < PWM; i++) {
         pwmWrite(dim, i);
         delay(fade);
     }
@@ -53,56 +51,28 @@ void dimDown() {
 
 //photoresistor code
 void dimming() {
-    int lightValue, PWM, invert;
-    int maxPWM = 255;
-    int minValue = 5;
-    int maxValue = 235;
+    int lightValue, PWM;
+    int maxPWM = 245;
     
     lightValue = analogRead(light); //reads the current vanalog value of the LDR and stores it in lightValue
-    
-    invert = 1024 - lightValue; //subtracts the analog value from the max possible value to invert it
 
-    PWM = invert / 4; //converts the ADC 12-bit value to 8-bit for PWM
-
-    //keeps the voltage on the tubes from dropping to low to ignite fully/at all
-    if(PWM < minValue) {
-        PWM = minValue;
-    }
+    PWM = lightValue / 4; //converts the ADC 12-bit value to 8-bit for PWM
 
     //pulls the PWM value to max since the voltage divider will never/rarely ever reach max
-    if(PWM > maxValue) {
+    if(PWM > maxPWM) {
         PWM = maxPWM;
     }
-
-    //Serial.println(PWM);
 
     pwmWrite(dim, PWM); //writes the PWM value
 
     return;
 }
 
-
-/*
-//pot testing code
-void dimming() {
-    int lightValue, PWM;
-
-    lightValue = analogRead(light);
-
-    PWM = lightValue / 4;
-
-    Serial.println(PWM);
-
-    pwmWrite(dim, PWM);
-
-    return;
-}
-*/
-
+//Cycles all tubes from 0-9 and 9-0 X times for show and will stop 
 void cycleDisplay(int &delaySpeed) {
-    int i, cycle = 0;
+    int i, cycle = 0, numCycles = 4;
 
-    //cycles though all digites in order four times getting slower on each loop
+    //cycles though all digites in order X times getting slower on each loop
     do {
         for (i = 0; i < 10; i++) {
             nixieDisplay(minOnesA, minOnesB, minOnesC, minOnesD, i);
@@ -116,7 +86,7 @@ void cycleDisplay(int &delaySpeed) {
         delaySpeed *= 1.25;
 
         cycle++;
-    } while(cycle < 4);
+    } while(cycle < numCycles);
 
     return;
 }
