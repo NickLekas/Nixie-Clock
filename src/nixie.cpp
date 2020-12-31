@@ -47,7 +47,7 @@ void dimDown() {
 // Reads the current value from the photoresistor and modifies the current PWM output
 void dimming() {
     int lightValue, PWM;
-    int maxPWM = 245;
+    int maxPWM = 250;
     
     lightValue = analogRead(light);                                     // Reads the current analog value of the LDR and stores it in lightValue 0 = bright, 1024 = dark
 
@@ -64,7 +64,9 @@ void dimming() {
 
 // Cycles all tubes from 0-9 X times for show and will stop 
 void cycleDisplay(int &delaySpeed) {
-    int i, cycle = 0, numCycles = 4;
+    int i;
+    int cycle = 0;
+    int numCycles = 4;
 
     do {                                                                // Cycles through 0-9 X times getting slower on each loop
         for (i = 0; i < 10; i++) {
