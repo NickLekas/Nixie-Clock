@@ -1,6 +1,7 @@
 #ifndef POWER_H
 #define POWER_H
 
+#include "debug.h"
 #include <Wire.h>
 #include <SparkFun_STUSB4500.h>
 

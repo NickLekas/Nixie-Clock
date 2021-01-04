@@ -8,7 +8,7 @@ void programPD() {
     int pdo2V = 9;                                          //9 volts
     int pdo2I = 2;                                          //2 amps
 
-    usbPD.begin();                                          // Initilaizes the STUB4500
+    Wire.begin();                                          // Initilaizes the STUB4500
     delay(100);                                             // Waits 0.1 seconds for the STUSB to startup
 
     if(!usbPD.begin()) {                                    // Checks if the STUSB connection was successful
@@ -24,9 +24,9 @@ void programPD() {
 
     delay(100);                                             // Waits 0.1 seconds for the STUSB to startup
 
-    usbPD.setPdoNumber(2);                                  // Sets the STUSB to use 2 PDOs 
-
     usbPD.write(DEFAULT);
+
+    usbPD.setPdoNumber(2);                                  // Sets the STUSB to use 2 PDOs 
 
     //PDO1
     usbPD.setCurrent(1,0.75);                               // Sets the required current for PDO1
@@ -39,6 +39,7 @@ void programPD() {
     usbPD.setLowerVoltageLimit(2,20);                       // Sets PDO2 voltage upper tolerance to 20%
     usbPD.setUpperVoltageLimit(2,20);                       // Sets PDO2 voltage lower tolerance to 20%
 
+    usbPD.write();
 
     #ifdef POWER_DEBUG
         Serial.println("Programmed");                       // Prints that the STUSB was programmed
