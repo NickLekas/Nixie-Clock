@@ -4,8 +4,9 @@ STUSB4500 usbPD;
 
 // Sets the 2 PDO voltages and calculates the currents for a given power limit
 // PDO3 has top priority, PDO1 is fixed at 5V
-void programPD(int pdoV2, int pdoV3, int pLimit) {
-    int pdoI2, pdoI3;
+void programPD() {
+    int pdo2V = 9;                                          //9 volts
+    int pdo2I = 2;                                          //2 amps
 
     usbPD.begin();                                          // Initilaizes the STUB4500
     delay(100);                                             // Waits 0.1 seconds for the STUSB to startup
@@ -23,10 +24,7 @@ void programPD(int pdoV2, int pdoV3, int pLimit) {
 
     delay(100);                                             // Waits 0.1 seconds for the STUSB to startup
 
-    pdoI2 = pLimit / pdoV2;                                 // Calculates the current limit for PDO2
-    pdoI3 = pLimit / pdoV3;                                 // Calculates the cuttent limit for PDO3
-
-    usbPD.setPdoNumber(3);                                  // Sets the STUSB to use 3 
+    usbPD.setPdoNumber(2);                                  // Sets the STUSB to use 2 PDOs 
 
     usbPD.write(DEFAULT);
 
@@ -36,16 +34,11 @@ void programPD(int pdoV2, int pdoV3, int pLimit) {
     usbPD.setLowerVoltageLimit(1,20);                       // Sets PDO1 voltage lower tolerance to 20%
 
     //PDO2
-    usbPD.setVoltage(2,pdoV2);                              // Sets the required voltage for PDO2
-    usbPD.setCurrent(2,pdoI2);                              // Sets the required current for PDO2
+    usbPD.setVoltage(2,pdo2V);                              // Sets the required voltage for PDO2
+    usbPD.setCurrent(2,pdo2I);                              // Sets the required current for PDO2
     usbPD.setLowerVoltageLimit(2,20);                       // Sets PDO2 voltage upper tolerance to 20%
     usbPD.setUpperVoltageLimit(2,20);                       // Sets PDO2 voltage lower tolerance to 20%
 
-    //PDO3
-    usbPD.setVoltage(3,pdoV3);                              // Sets the required voltage for PDO3
-    usbPD.setCurrent(3,pdoI3);                              // Sets the required current for PDO3
-    usbPD.setLowerVoltageLimit(3,20);                       // Sets PDO3 voltage upper tolerance to 20%
-    usbPD.setUpperVoltageLimit(3,20);                       // Sets PDO3 voltage lower tolerance to 20%
 
     #ifdef POWER_DEBUG
         Serial.println("Programmed");                       // Prints that the STUSB was programmed

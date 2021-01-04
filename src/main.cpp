@@ -90,7 +90,7 @@ void startUp() {
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
 
-  programPD(9, 12, 18);
+  programPD();
 
   RTCInit();                                                          // Sets the RTC time using the GPS or stored time from the battery backup functionality
 
