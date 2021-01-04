@@ -37,14 +37,12 @@ void getRTCTime(int &minute, int &hour) {
 
     DateTime now = rtc.now();                                   // Gets the current time from the RTC
 
-    //pulls the RTC time
     minute = now.minute();                                      // Gets the current minute from the fetched RTC data
     hour = now.hour();                                          // Gets the current hour from the fetched RTC data
 
     readSettings(timeZone);                                     // Reads the switch settings for the set time zone
 
     hour += timeZone;                                           // Applies the time zone value to the hour
-
     
     if(hour < 0) {                                              // Checks if the adjusted time is less than 24
         hour += 24;                                             // If the adjusted time is less than 0, add 24                
@@ -104,7 +102,7 @@ void readSettings(int &timeZone) {
         timeZone += 1;
     }
 
-    if(digitalRead(dst) == LOW) {                               // Reads dip dwitch 1 to add an hour for daylight savings time
+    if(digitalRead(dst) == LOW) {                               // Reads dip switch 1 to add an hour for daylight savings time
         timeZone++;
     }
 

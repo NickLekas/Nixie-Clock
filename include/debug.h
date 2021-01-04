@@ -1,10 +1,12 @@
 #ifndef DEBUG_H
 #define DEBUG_H
 
+//#define DEBUG             // Enables the serial monitor
+
 //debug options, setting to true prints debug data to the console
-//#define FIX_DEBUG         //prints if gps fix data
-//#define TIME_DEBUG        //prints the most recent time update
-#define GENERAL_DEBUG       //prints general debug messages
+//#define FIX_DEBUG         // Prints the GPS fix status
+//#define TIME_DEBUG        // Prints the most recent time update
+#define GENERAL_DEBUG     // Prints general debug messages
 
 //#define PCB               //enables the pinout for the PCB clock instead of the MEGA
 
