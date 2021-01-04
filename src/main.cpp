@@ -15,7 +15,9 @@ void startUp();                                                       // Initial
 void setup() {
   int i;
 
-  Serial.begin(115200);                                               // Sets Serial0 to 115200 Hz for debug printing
+  #ifdef DEBUG
+    Serial.begin(115200);                                               // Sets Serial0 to 115200 Hz for debug printing
+  #endif
 
   #ifdef GENERAL_DEBUG
     Serial.println("Starting");                                       // Indicates the the code has started
