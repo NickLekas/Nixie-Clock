@@ -27,7 +27,7 @@ void dimmingInit() {
 
 void dimDown() {
     int lightValue, PWM, i;
-    int maxPWM = 245;
+    int maxPWM = 250;
     int fade = 10;
 
     lightValue = analogRead(light);                                     // Reads the current analog value of the LDR and stores it in lightValue 0 = bright, 1024 = dark
