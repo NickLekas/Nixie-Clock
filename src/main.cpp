@@ -1,5 +1,6 @@
 #include <Arduino.h>
 
+#include "power.h"
 #include "debug.h"
 #include "gps.h"
 #include "nixie.h"
@@ -88,6 +89,8 @@ void startUp() {
   int minute, hour;
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
+
+  programPD();
 
   RTCInit();                                                          // Sets the RTC time using the GPS or stored time from the battery backup functionality
 

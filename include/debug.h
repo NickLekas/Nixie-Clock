@@ -7,6 +7,7 @@
 //#define FIX_DEBUG         // Prints the GPS fix status
 //#define TIME_DEBUG        // Prints the most recent time update
 #define GENERAL_DEBUG     // Prints general debug messages
+//#define POWER_DEBUG       // Prints the debug messages for the power control
 
 //#define PCB               //enables the pinout for the PCB clock instead of the MEGA
 
