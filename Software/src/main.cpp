@@ -24,7 +24,7 @@ void setup() {
     Serial.println("Starting");                                       // Indicates the the code has started
   #endif
 
-  for(i = dst; i <= one; i++) {                                       // Sets all the pins for the setting switches as inputs with pullups
+  for(i = extra1; i <= dst; i++) {                                       // Sets all the pins for the setting switches as inputs with pullups
     pinMode(i, INPUT_PULLUP);                                       
   }
 
@@ -90,7 +90,7 @@ void startUp() {
   int minOnes, minTens, hourOnes, hourTens;
   int i, delaySpeed = 50;
 
-  programPD();
+  //programPD();
 
   RTCInit();                                                          // Sets the RTC time using the GPS or stored time from the battery backup functionality
 
