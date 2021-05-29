@@ -21,7 +21,7 @@ void nixieInit() {
 // Sets the PWM frequency of the dimming pin
 void dimmingInit() {
     //InitTimersSafe();                                                   // Initializes all timers except for 0
-
+    TCCR3B = TCCR3B & B11111000 | B00000100;   // for PWM frequency of 122.55 Hz
     //SetPinFrequencySafe(dim, 120);                                       // Sets the dimming PWM frequncy to 75 Hz so there is no audible coil whine
 
     analogWrite(dim, 255);                                                   // Sets the intial brightness to max surring startup so it's always visable durring startup
