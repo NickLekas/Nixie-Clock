@@ -4,7 +4,11 @@
 void nixieInit() {
     int i;
 
-    for (i = hrTensA; i <= minOnesD; i++) {                             // Sets all the pins for the nixie drivers as outputs
+    for (i = minOnesA; i <= minTensC; i++) {                             // Sets all the pins for the nixie drivers as outputs
+        pinMode(i, OUTPUT);
+    }
+
+    for (i = hrOnesA; i <= hrTensC; i++) {                             // Sets all the pins for the nixie drivers as outputs
         pinMode(i, OUTPUT);
     }
 
@@ -16,11 +20,12 @@ void nixieInit() {
 
 // Sets the PWM frequency of the dimming pin
 void dimmingInit() {
-    InitTimersSafe();                                                   // Initializes all timers except for 0
+    //InitTimersSafe();                                                   // Initializes all timers except for 0
 
-    SetPinFrequencySafe(dim, 75);                                       // Sets the dimming PWM frequncy to 75 Hz so there is no audible coil whine
+    //SetPinFrequencySafe(dim, 120);                                       // Sets the dimming PWM frequncy to 75 Hz so there is no audible coil whine
 
-    pwmWrite(dim, 0);                                                   // Sets the intial brightness to max surring startup so it's always visable durring startup
+    analogWrite(dim, 255);                                                   // Sets the intial brightness to max surring startup so it's always visable durring startup
+    //pwmWrite(dim, 255);
 
     return;
 }
@@ -35,11 +40,12 @@ void dimDown() {
     PWM = lightValue / 4;                                               // Converts the ADC 12-bit light value to 8-bit for PWM
 
     if(PWM > maxPWM) {                                                  // Checks if PWM value is too high to fully ignite the tubes
-        PWM = maxPWM;                                                   // Sets the the PWM value to a lower predetermined value
+        PWM = 255;                                                      // Sets the the PWM value to a lower predetermined value
     }
 
-    for(i = 0; i < PWM; i++) {                                          // Dims the tubes to the current light value
-        pwmWrite(dim, i);                                               // Writes the current value of 'i' to the PWM pin
+    for(i = 255; i > PWM; i--) {                                        // Dims the tubes to the current light value
+        analogWrite(dim, i);                                            // Writes the current value of 'i' to the PWM pin
+        //pwmWrite(dim, i);
         delay(fade);                                                    // Waits X time to control the speed of the dimmnig
     }
 }
@@ -57,7 +63,8 @@ void dimming() {
         PWM = maxPWM;                                                   // Sets the the PWM value to a lower predetermined value
     }
 
-    pwmWrite(dim, PWM);                                                 // Sets the PWM output to the new value
+    analogWrite(dim, PWM);                                              // Sets the PWM output to the new value
+    //pwmWrite(dim, PWM);
 
     return;
 }
