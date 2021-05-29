@@ -6,7 +6,7 @@
 const int gpsCtrl = 39; //PG2
 
 //dimming pins
-const int dim = 4; //PG5
+const int dim = 5; //PG5
 const int light = 54; //A0 PF0
 
 //dip switch pins
