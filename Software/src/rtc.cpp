@@ -12,7 +12,12 @@ void RTCInit() {
         #ifdef TIME_DEBUG                                       // Prints that power was lost to the serial monitor
             Serial.println("power loss");
         #endif
-        setRTCTime();                                           // Sets the RTC time using the GPS
+
+        #ifdef SET_RTC
+            rtc.adjust(DateTime(F(__DATE__), F(__TIME__)));
+        #else
+            setRTCTime();                                       // Sets the RTC time using the GPS
+        #endif
     }
 
     return;
@@ -86,10 +91,7 @@ void twelveHour(int &hour) {
 // Reads each bit and sums the decimal values to set the time zone
 void readSettings(int &timeZone) {
 
-    if(digitalRead(plusMinus) == HIGH){                         // Reads each switch one at a time                    
-        timeZone += -16;
-    }
-    if(digitalRead(eight) == LOW) {
+    if(digitalRead(eight) == LOW) {                             // Reads each switch one at a time
         timeZone += 8;
     }
     if(digitalRead(four) == LOW) {
@@ -100,6 +102,9 @@ void readSettings(int &timeZone) {
     }
     if(digitalRead(one) == LOW) {
         timeZone += 1;
+    }
+    if(digitalRead(plusMinus) == HIGH){                                             
+        timeZone *= -1;
     }
 
     if(digitalRead(dst) == LOW) {                               // Reads dip switch 1 to add an hour for daylight savings time
