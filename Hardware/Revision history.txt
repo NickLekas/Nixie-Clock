@@ -1,7 +1,9 @@
 v1.0
 	- Initial design
-v1.1
+v1.05
 	- Changed all polygon pours to not have thermal connections
 	- Changed D1, D2 to have 5.1k current limiting resistors
 	- Added 5.1k pull downs to CC1, CC2
 	- Reduced the RX voltage divider to a 10K and 5.1K
+v1.1
+	- Switched design to KiCad

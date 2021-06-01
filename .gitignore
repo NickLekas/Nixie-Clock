@@ -1,3 +1,5 @@
+#EAGLE FILES
+
 # Backup files
 *.s#?
 *.b#?
@@ -8,3 +10,13 @@
 # on your computer.
 # comment the following line if you want to have your project file included.
 eagle.epf
+
+#KICAD FILES
+
+*.log
+fp-info-cache
+*.kicad_prl
+
+
+#Backup folder
+*-backups/

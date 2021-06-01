@@ -109,10 +109,14 @@ void startUp() {
   #endif
 
     minOnes = minute % 10;                                            // Uses mod 10 to get the ones digit of the minute
+    Serial.println(minOnes);
     minTens = (minute - minOnes) / 10;                                // Subtracts the ones digit from the current hour and divides by 10 to get the tens digit of the minute
+    Serial.println(minTens);
 
     hourOnes = hour % 10;                                             // Uses mod 10 to get the ones digit of the hour
+    Serial.println(hourOnes);
     hourTens = (hour - hourOnes) / 10;                                // Subtracts the ones digit from the current hour and divides by 10 to get the tens digit of the hour
+    Serial.println(hourTens);
 
   
   for(i = 0; i < 10; i++) {                                           // Cycles each tube from 0-9 until the each digit of the current time is on

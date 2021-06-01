@@ -28,7 +28,7 @@ void getGPSTime(int &seconds, int &minute, int &hour) {
     do {                                                    // Checks the GPS for new data and loops until a fix is acquired
         delay(1000);
         
-        gps.read();                                         // Reads the most recent data from the GPS
+        char c = gps.read();                                         // Reads the most recent data from the GPS
 
         if (gps.newNMEAreceived()) {                        // Checks if new data was received
             gps.parse(gps.lastNMEA());                      // Parses the new data

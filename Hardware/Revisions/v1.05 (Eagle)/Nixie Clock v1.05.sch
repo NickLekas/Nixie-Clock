@@ -24757,7 +24757,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <description>Microcontroller</description>
 <plain>
 <text x="48.26" y="-109.22" size="5.08" layer="94">Miccrocontroller</text>
-<text x="134.62" y="-128.27" size="3.81" layer="94">1.0</text>
+<text x="134.62" y="-128.27" size="3.81" layer="94">1.05</text>
 </plain>
 <instances>
 <instance part="U1" gate="1" x="0" y="0" smashed="yes">
@@ -25229,7 +25229,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <plain>
 <text x="-91.44" y="157.48" size="3.81" layer="91">USB to Serial</text>
 <text x="175.26" y="-45.72" size="5.08" layer="94">Comunication</text>
-<text x="261.62" y="-64.77" size="3.81" layer="94">1.0</text>
+<text x="261.62" y="-64.77" size="3.81" layer="94">1.05</text>
 <text x="43.18" y="157.48" size="3.81" layer="91">ISCP</text>
 <text x="129.54" y="157.48" size="3.81" layer="91">Serial header</text>
 </plain>
@@ -25582,7 +25582,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="-78.74" y="55.88" size="3.81" layer="91">Nixie Power</text>
 <text x="-50.8" y="139.7" size="3.81" layer="91">3.3V</text>
 <text x="109.22" y="-93.98" size="5.08" layer="94">Power</text>
-<text x="195.58" y="-113.03" size="3.81" layer="94">1.0</text>
+<text x="195.58" y="-113.03" size="3.81" layer="94">1.05</text>
 <text x="-182.88" y="55.88" size="3.81" layer="91">USB PD</text>
 <text x="-190.5" y="139.7" size="3.81" layer="91">5V</text>
 <text x="-121.92" y="139.7" size="3.81" layer="91">5V Analog</text>
@@ -26103,7 +26103,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <text x="-63.5" y="149.86" size="3.81" layer="91">RTC</text>
 <text x="50.8" y="152.4" size="3.81" layer="91">GPS</text>
 <text x="175.26" y="-63.5" size="5.08" layer="94">RTC and GPS</text>
-<text x="261.62" y="-82.55" size="3.81" layer="94">1.0</text>
+<text x="261.62" y="-82.55" size="3.81" layer="94">1.05</text>
 <text x="-58.42" y="71.12" size="3.81" layer="91">Settings</text>
 <text x="60.96" y="68.58" size="3.81" layer="91">Photoresistor</text>
 </plain>
@@ -26559,7 +26559,7 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <plain>
 <text x="22.86" y="73.66" size="3.81" layer="91">Nixie and Drivers</text>
 <text x="281.94" y="-93.98" size="5.08" layer="94">Nixie Tubes and Drivers</text>
-<text x="368.3" y="-113.03" size="3.81" layer="94">1.0</text>
+<text x="368.3" y="-113.03" size="3.81" layer="94">1.05</text>
 <text x="205.74" y="-12.7" size="2.54" layer="91">colon</text>
 </plain>
 <instances>
