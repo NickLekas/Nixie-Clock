@@ -17,6 +17,5 @@ eagle.epf
 fp-info-cache
 *.kicad_prl
 
-
 #Backup folder
 *-backups/
