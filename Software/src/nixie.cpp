@@ -25,7 +25,6 @@ void dimmingInit() {
     //SetPinFrequencySafe(dim, 120);                                       // Sets the dimming PWM frequncy to 75 Hz so there is no audible coil whine
 
     analogWrite(dim, 255);                                                   // Sets the intial brightness to max surring startup so it's always visable durring startup
-    //pwmWrite(dim, 255);
 
     return;
 }
@@ -33,6 +32,7 @@ void dimmingInit() {
 void dimDown() {
     int lightValue, PWM, i;
     int maxPWM = 250;
+    int minPWM = 2;
     int fade = 10;
 
     lightValue = analogRead(light);                                     // Reads the current analog value of the LDR and stores it in lightValue 0 = bright, 1024 = dark
@@ -43,9 +43,12 @@ void dimDown() {
         PWM = 255;                                                      // Sets the the PWM value to a lower predetermined value
     }
 
+    if(PWM < minPWM) {
+        PWM = minPWM;
+    }
+
     for(i = 255; i > PWM; i--) {                                        // Dims the tubes to the current light value
         analogWrite(dim, i);                                            // Writes the current value of 'i' to the PWM pin
-        //pwmWrite(dim, i);
         delay(fade);                                                    // Waits X time to control the speed of the dimmnig
     }
 }
@@ -54,6 +57,7 @@ void dimDown() {
 void dimming() {
     int lightValue, PWM;
     int maxPWM = 250;
+    int minPWM = 2;
     
     lightValue = analogRead(light);                                     // Reads the current analog value of the LDR and stores it in lightValue 0 = bright, 1024 = dark
 
@@ -63,8 +67,11 @@ void dimming() {
         PWM = maxPWM;                                                   // Sets the the PWM value to a lower predetermined value
     }
 
+    if(PWM < minPWM) {
+        PWM = minPWM;
+    }
+
     analogWrite(dim, PWM);                                              // Sets the PWM output to the new value
-    //pwmWrite(dim, PWM);
 
     return;
 }
