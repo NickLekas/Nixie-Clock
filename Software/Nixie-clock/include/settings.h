@@ -5,14 +5,9 @@
 #include "pins.h"
 
 void settingsInit();
-
+void getDST(int &DST);
+void getTimeMode(bool &twelveHr);
+void getTimeZone(int &zone);
 
 #endif
 
-void settingsInit() {
-    int i;
-
-    for(i = extra1; i <= dst; i++) {
-        pinMode(i, INPUT_PULLUP);
-    }
-}
