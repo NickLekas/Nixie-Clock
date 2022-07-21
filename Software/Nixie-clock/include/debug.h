@@ -9,6 +9,6 @@
 //#define POWER_DEBUG         // Prints the debug messages for the power control
 //#define SET_RTC             // Sets the RTC using the uploading computers time
 
-#define PCB                 //enables the pinout for the PCB clock instead of the MEGA
+//#define PCB                 //enables the pinout for the PCB clock instead of the MEGA
 
 #endif
