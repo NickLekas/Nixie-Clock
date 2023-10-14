@@ -326,6 +326,18 @@
     [
       "c0a6585c-98af-4b15-9b20-16f98b14ad67",
       ""
+    ],
+    [
+      "f919836d-6feb-4988-bd2e-c424f7495956",
+      "MCU"
+    ],
+    [
+      "0d1f91b1-4d2c-429e-bc57-8d9438840a36",
+      "Nixie"
+    ],
+    [
+      "ea5fc1a7-916e-4aef-ab74-a26d728951d5",
+      "Settings & Sensors"
     ]
   ],
   "text_variables": {}
