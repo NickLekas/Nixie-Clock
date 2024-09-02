@@ -13308,6 +13308,17 @@
 		)
 		(uuid "925ebe1a-b52c-4d9b-a53d-6e4fd8527cbc")
 	)
+	(label "BOOT_SEL"
+		(at 120.65 207.01 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "990932ba-1fbc-4b68-ae5a-51b03f93707e")
+	)
 	(label "Minutes_Ones_D"
 		(at 444.5 73.66 90)
 		(fields_autoplaced yes)
@@ -13439,6 +13450,17 @@
 			(justify left bottom)
 		)
 		(uuid "ce99e6d5-e28b-424e-8ca7-513585822c02")
+	)
+	(label "RESET"
+		(at 172.72 176.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d2cba7e0-52c2-40fd-aea5-70a5fbb8abc1")
 	)
 	(label "I2C1_SDA"
 		(at 495.3 73.66 90)
