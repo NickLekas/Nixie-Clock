@@ -6481,126 +6481,6 @@
 				)
 			)
 		)
-		(symbol "power:+3.3V"
-			(power)
-			(pin_names
-				(offset 0)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "+3.3V"
-				(at 0 3.556 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "+3.3V_0_1"
-				(polyline
-					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "+3.3V_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0) hide
-					(name "+3.3V"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "power:+3V3"
 			(power)
 			(pin_names
@@ -9956,7 +9836,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 153.67) (xy 123.19 153.67)
+			(xy 91.44 153.67) (xy 123.19 153.67)
 		)
 		(stroke
 			(width 0)
@@ -11356,7 +11236,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 158.75) (xy 80.01 158.75)
+			(xy 55.88 158.75) (xy 86.36 158.75)
 		)
 		(stroke
 			(width 0)
@@ -11876,7 +11756,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 158.75) (xy 120.65 158.75)
+			(xy 91.44 158.75) (xy 120.65 158.75)
 		)
 		(stroke
 			(width 0)
@@ -12646,7 +12526,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 153.67) (xy 80.01 153.67)
+			(xy 55.88 153.67) (xy 86.36 153.67)
 		)
 		(stroke
 			(width 0)
@@ -13087,6 +12967,17 @@
 		)
 		(uuid "183f0271-c027-4d32-9c3f-ca2615f2b1bf")
 	)
+	(label "USB_RP_D+"
+		(at 95.25 158.75 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "18acf4c9-de48-4cc6-81f5-6071796e1642")
+	)
 	(label "Hours_Ones_D"
 		(at 273.05 212.09 0)
 		(fields_autoplaced yes)
@@ -13307,6 +13198,17 @@
 		)
 		(uuid "6a847054-d132-4bad-a1aa-5f04b5866ecd")
 	)
+	(label "USB_RP_D-"
+		(at 95.25 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "7440af7a-4a91-409c-8a3b-561180121ae3")
+	)
 	(label "Dimming"
 		(at 273.05 245.11 0)
 		(fields_autoplaced yes)
@@ -13350,6 +13252,28 @@
 			(justify left bottom)
 		)
 		(uuid "7b6a4b24-6147-49a7-9087-191e664441ca")
+	)
+	(label "USB_D-"
+		(at 76.2 153.67 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "86a454fc-17fa-41bb-a627-265a6aa74d15")
+	)
+	(label "USB_D+"
+		(at 76.2 158.75 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8bff6718-f643-4d06-98d9-8ccc2e971dd2")
 	)
 	(label "Minutes_Ones_A"
 		(at 441.96 73.66 90)
@@ -13843,74 +13767,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 403.86 102.87 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "071ad0f0-7c10-44eb-ba1f-56764dc9a01b")
-		(property "Reference" "#PWR012"
-			(at 403.86 106.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 403.86 97.79 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 403.86 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 403.86 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 403.86 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c2afeb27-d1a5-44a5-af8a-c7f16cb8a4b5")
-		)
-		(instances
-			(project "Nixie v2 Processor Board"
-				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 82.55 158.75 270)
+		(at 88.9 158.75 270)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
@@ -13919,7 +13777,7 @@
 		(dnp no)
 		(uuid "075e458c-de9f-42b8-bb29-ea63bd4ef640")
 		(property "Reference" "R5"
-			(at 82.55 165.1 90)
+			(at 88.9 165.1 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13927,7 +13785,7 @@
 			)
 		)
 		(property "Value" "27.4"
-			(at 82.55 162.56 90)
+			(at 88.9 162.56 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13935,7 +13793,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 82.55 158.75 0)
+			(at 88.9 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13944,7 +13802,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 158.75 0)
+			(at 88.9 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13953,7 +13811,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 82.55 158.75 0)
+			(at 88.9 158.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13971,72 +13829,6 @@
 			(project "Nixie Clock v2"
 				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
 					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 102.87 195.58 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "0a08f35d-f5b9-4c1f-8bbf-599525a18f28")
-		(property "Reference" "#PWR029"
-			(at 102.87 199.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 102.87 190.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 102.87 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 102.87 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 102.87 195.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a8bd6035-2a4e-45c3-a7a3-e27c90d2945e")
-		)
-		(instances
-			(project "Nixie Clock v2"
-				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
-					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -16537,6 +16329,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 474.98 41.91 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "53db8474-d98f-4eea-9572-4cf9b5268d8f")
+		(property "Reference" "#PWR01"
+			(at 474.98 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 474.98 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 474.98 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 474.98 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 474.98 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "60be74e5-84dd-43fc-82fa-3170d36efd59")
+		)
+		(instances
+			(project "Nixie v2 Processor Board"
+				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
+					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 505.46 62.23 180)
 		(unit 1)
@@ -18045,6 +17904,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 102.87 195.58 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "76b2ab9e-cf50-4bee-b711-a6c72544c3bd")
+		(property "Reference" "#PWR06"
+			(at 102.87 199.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 102.87 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 102.87 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 102.87 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 102.87 195.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "37e586e7-5f0e-4569-b319-56a8d36f38bb")
+		)
+		(instances
+			(project "Nixie v2 Processor Board"
+				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
+					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x01_Pin")
 		(at 469.9 137.16 270)
 		(unit 1)
@@ -18525,6 +18451,73 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
+		(at 403.86 102.87 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7da7d35f-1d4b-418e-b3ab-220dae43dc52")
+		(property "Reference" "#PWR012"
+			(at 403.86 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 403.86 97.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 403.86 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 403.86 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 403.86 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "627899ab-b22f-4d44-bbe1-e6793f27599d")
+		)
+		(instances
+			(project "Nixie v2 Processor Board"
+				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
 		(at 292.1 173.99 0)
 		(mirror y)
 		(unit 1)
@@ -18967,7 +18960,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small_US")
-		(at 82.55 153.67 270)
+		(at 88.9 153.67 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -18976,7 +18969,7 @@
 		(fields_autoplaced yes)
 		(uuid "8ac1da22-640c-4b0f-9bed-30bb42d6e2db")
 		(property "Reference" "R4"
-			(at 82.55 147.32 90)
+			(at 88.9 147.32 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18984,7 +18977,7 @@
 			)
 		)
 		(property "Value" "27.4"
-			(at 82.55 149.86 90)
+			(at 88.9 149.86 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18992,7 +18985,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
-			(at 82.55 153.67 0)
+			(at 88.9 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19001,7 +18994,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 153.67 0)
+			(at 88.9 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19010,7 +19003,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 82.55 153.67 0)
+			(at 88.9 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19028,73 +19021,6 @@
 			(project "Nixie Clock v2"
 				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 474.98 41.91 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8d282c03-bba1-4e72-97bf-9f0d0f27ca21")
-		(property "Reference" "#PWR01"
-			(at 474.98 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 474.98 36.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 474.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 474.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 474.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "deb7f221-7b2f-4adf-93a9-d6055bd21901")
-		)
-		(instances
-			(project "Nixie v2 Processor Board"
-				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -19509,15 +19435,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
+		(lib_id "power:+3V3")
 		(at 223.52 63.5 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a305a444-cd48-4ac5-a242-373617620b56")
+		(uuid "a393480f-33c0-444c-a242-09daf42e9b12")
 		(property "Reference" "#PWR09"
 			(at 223.52 67.31 0)
 			(effects
@@ -19527,7 +19454,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3.3V"
+		(property "Value" "+3V3"
 			(at 223.52 58.42 0)
 			(effects
 				(font
@@ -19563,10 +19490,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "7036eb77-d538-4e9e-b10a-d4427e7dc547")
+			(uuid "86e386b5-ed45-4149-90c3-902d9ed715ea")
 		)
 		(instances
-			(project "Nixie Clock v2"
+			(project "Nixie v2 Processor Board"
 				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
 					(reference "#PWR09")
 					(unit 1)
@@ -19705,6 +19632,73 @@
 			(project "Nixie Clock v2"
 				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
 					(reference "R15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 161.29 165.1 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a8a2726b-15b5-43f0-9eb2-a58de9fe5b5a")
+		(property "Reference" "#PWR05"
+			(at 161.29 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 161.29 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 161.29 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 161.29 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 161.29 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "99576839-3348-4009-b639-c7c628499466")
+		)
+		(instances
+			(project "Nixie v2 Processor Board"
+				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -20745,72 +20739,6 @@
 			(project "Nixie Clock v2"
 				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
 					(reference "C14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 161.29 165.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c33373e8-241b-41b6-b09f-7d7dfd6b6c1d")
-		(property "Reference" "#PWR019"
-			(at 161.29 168.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 161.29 160.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 161.29 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 161.29 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 161.29 165.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1956e7eb-880b-4484-9281-f03ed989902a")
-		)
-		(instances
-			(project "Nixie Clock v2"
-				(path "/c0a6585c-98af-4b15-9b20-16f98b14ad67"
-					(reference "#PWR019")
 					(unit 1)
 				)
 			)
