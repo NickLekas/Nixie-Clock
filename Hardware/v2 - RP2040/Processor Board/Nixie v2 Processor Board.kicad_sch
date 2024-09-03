@@ -9196,16 +9196,6 @@
 	)
 	(wire
 		(pts
-			(xy 353.06 82.55) (xy 497.84 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c14dcd7-d874-4d1c-8c12-207ce066f80a")
-	)
-	(wire
-		(pts
 			(xy 426.72 203.2) (xy 407.67 203.2)
 		)
 		(stroke
@@ -9693,6 +9683,16 @@
 			(type default)
 		)
 		(uuid "6892248b-f603-4072-9d7d-a8b21abed9a8")
+	)
+	(wire
+		(pts
+			(xy 497.84 49.53) (xy 497.84 85.09)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "68d3ddf9-b2c2-4237-8b19-8836d6e9823d")
 	)
 	(bus
 		(pts
@@ -10253,6 +10253,16 @@
 			(type default)
 		)
 		(uuid "86eeb268-0b13-4a9c-99e5-e3d47b29d06b")
+	)
+	(wire
+		(pts
+			(xy 495.3 49.53) (xy 495.3 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8702f333-7ac9-4af1-a4c1-ab10a7fdc9d2")
 	)
 	(wire
 		(pts
@@ -11446,16 +11456,6 @@
 	)
 	(wire
 		(pts
-			(xy 497.84 49.53) (xy 497.84 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c6c26af3-1889-4162-9be9-5e202de8a461")
-	)
-	(wire
-		(pts
 			(xy 382.27 232.41) (xy 379.73 232.41)
 		)
 		(stroke
@@ -11713,16 +11713,6 @@
 			(type default)
 		)
 		(uuid "d0b2eb98-d02b-4ea6-aa37-78a13e8021af")
-	)
-	(wire
-		(pts
-			(xy 495.3 49.53) (xy 495.3 85.09)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0fb2d38-3086-4402-946c-637d9f6476a8")
 	)
 	(wire
 		(pts
@@ -12236,6 +12226,16 @@
 	)
 	(wire
 		(pts
+			(xy 353.06 82.55) (xy 495.3 82.55)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec1a0491-64cf-4ace-a70a-85c4b3d2ff59")
+	)
+	(wire
+		(pts
 			(xy 467.36 339.09) (xy 467.36 341.63)
 		)
 		(stroke
@@ -12576,7 +12576,7 @@
 	)
 	(wire
 		(pts
-			(xy 355.6 85.09) (xy 495.3 85.09)
+			(xy 355.6 85.09) (xy 497.84 85.09)
 		)
 		(stroke
 			(width 0)
@@ -12956,17 +12956,6 @@
 		)
 		(uuid "1303c0c3-6132-4ffe-b18e-4c422d344872")
 	)
-	(label "I2C1_SCL"
-		(at 497.84 73.66 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "183f0271-c027-4d32-9c3f-ca2615f2b1bf")
-	)
 	(label "USB_RP_D+"
 		(at 95.25 158.75 0)
 		(fields_autoplaced yes)
@@ -13231,6 +13220,17 @@
 		)
 		(uuid "783c35de-e8f6-40b7-9213-3540dfb2df0f")
 	)
+	(label "I2C1_SCL"
+		(at 495.3 73.66 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "79622dc2-f115-46c1-a637-922a6d4a77e9")
+	)
 	(label "Settings_Interrupt"
 		(at 361.95 308.61 0)
 		(fields_autoplaced yes)
@@ -13298,6 +13298,17 @@
 		(uuid "8f391c7b-9001-4fa4-84a2-8d0706ccf735")
 	)
 	(label "I2C1_SDA"
+		(at 497.84 73.66 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9005477c-cd7c-421f-a198-96f4825022cc")
+	)
+	(label "I2C1_SDA"
 		(at 361.95 213.36 0)
 		(fields_autoplaced yes)
 		(effects
@@ -13307,17 +13318,6 @@
 			(justify left bottom)
 		)
 		(uuid "925ebe1a-b52c-4d9b-a53d-6e4fd8527cbc")
-	)
-	(label "BOOT_SEL"
-		(at 120.65 207.01 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "990932ba-1fbc-4b68-ae5a-51b03f93707e")
 	)
 	(label "Minutes_Ones_D"
 		(at 444.5 73.66 90)
@@ -13461,17 +13461,6 @@
 			(justify left bottom)
 		)
 		(uuid "d2cba7e0-52c2-40fd-aea5-70a5fbb8abc1")
-	)
-	(label "I2C1_SDA"
-		(at 495.3 73.66 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "d858b58f-b169-42c5-b792-638c7d91dc3b")
 	)
 	(label "GPS_Enable"
 		(at 361.95 118.11 0)

@@ -4754,6 +4754,12 @@
 		(uuid "310cd776-d6ca-4969-9635-9ff9986ac947")
 	)
 	(junction
+		(at 332.74 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3d7dd106-22cf-4263-a99f-39db3347159a")
+	)
+	(junction
 		(at 173.99 132.08)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4776,6 +4782,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7289d572-f1c0-4285-a290-426e310aa7a8")
+	)
+	(junction
+		(at 354.33 54.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7775656e-99a1-4448-b92f-062ee2475192")
 	)
 	(junction
 		(at 156.21 35.56)
@@ -5543,16 +5555,6 @@
 		)
 		(uuid "28169483-b0e0-494c-abd9-d226d9728341")
 	)
-	(wire
-		(pts
-			(xy 38.1 64.77) (xy 166.37 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "281e49dd-2b7c-4fca-9190-8b5a10a54ac6")
-	)
 	(bus
 		(pts
 			(xy 105.41 60.96) (xy 107.95 60.96)
@@ -5622,6 +5624,16 @@
 			(type default)
 		)
 		(uuid "2bb2994e-1b70-4427-9f4b-5a8a06f30b70")
+	)
+	(wire
+		(pts
+			(xy 163.83 33.02) (xy 163.83 62.23)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bb6ddab-474d-430e-bba9-2df4ee8cdb56")
 	)
 	(wire
 		(pts
@@ -5965,16 +5977,6 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 33.02) (xy 163.83 62.23)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "50a363f8-267e-4e1a-b010-9fc7446995ae")
-	)
-	(wire
-		(pts
 			(xy 166.37 207.01) (xy 162.56 207.01)
 		)
 		(stroke
@@ -6002,6 +6004,16 @@
 			(type default)
 		)
 		(uuid "5351315d-1612-4bbd-ab0c-fae5272b8b18")
+	)
+	(wire
+		(pts
+			(xy 326.39 54.61) (xy 332.74 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55844a3a-babc-4b1c-8e69-0561a22428ac")
 	)
 	(wire
 		(pts
@@ -6185,6 +6197,16 @@
 	)
 	(wire
 		(pts
+			(xy 332.74 54.61) (xy 354.33 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ba42df0-01b8-4b3a-afc0-e67fbab6a7ed")
+	)
+	(wire
+		(pts
 			(xy 69.85 33.02) (xy 69.85 58.42)
 		)
 		(stroke
@@ -6232,6 +6254,16 @@
 			(type default)
 		)
 		(uuid "6e8de627-fddb-4203-a32a-14a62a7c35b8")
+	)
+	(wire
+		(pts
+			(xy 38.1 64.77) (xy 166.37 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7046be52-82d9-4f84-804e-5b20f26016d9")
 	)
 	(wire
 		(pts
@@ -6545,6 +6577,16 @@
 	)
 	(wire
 		(pts
+			(xy 166.37 33.02) (xy 166.37 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "96399704-a587-49d9-aa6d-b28eadcb5606")
+	)
+	(wire
+		(pts
 			(xy 364.49 176.53) (xy 364.49 199.39)
 		)
 		(stroke
@@ -6852,16 +6894,6 @@
 			(type default)
 		)
 		(uuid "b4cdcb78-708d-415c-945a-f00f27c39a32")
-	)
-	(wire
-		(pts
-			(xy 166.37 33.02) (xy 166.37 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b58480de-ddc3-472b-a24d-8ef24104e48d")
 	)
 	(wire
 		(pts
@@ -7265,6 +7297,16 @@
 	)
 	(wire
 		(pts
+			(xy 332.74 35.56) (xy 332.74 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9ddf469-27e4-4df4-84c8-9fc279c989e8")
+	)
+	(wire
+		(pts
 			(xy 64.77 34.29) (xy 66.04 34.29)
 		)
 		(stroke
@@ -7445,6 +7487,16 @@
 	)
 	(wire
 		(pts
+			(xy 354.33 54.61) (xy 354.33 30.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f574dbd0-2899-4406-ad4b-f64ccc5263a1")
+	)
+	(wire
+		(pts
 			(xy 173.99 132.08) (xy 173.99 146.05)
 		)
 		(stroke
@@ -7525,7 +7577,7 @@
 	)
 	(wire
 		(pts
-			(xy 354.33 55.88) (xy 354.33 30.48)
+			(xy 354.33 55.88) (xy 354.33 54.61)
 		)
 		(stroke
 			(width 0)
@@ -7572,6 +7624,16 @@
 			(type default)
 		)
 		(uuid "fd781e3d-d64f-437a-a7c7-e052a7a843d7")
+	)
+	(wire
+		(pts
+			(xy 326.39 54.61) (xy 326.39 29.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe05e48b-5bcd-42c8-b411-19c74b9a37f8")
 	)
 	(wire
 		(pts
@@ -7959,6 +8021,17 @@
 		)
 		(uuid "a571427a-57a5-401e-a41c-eba143cd1caf")
 	)
+	(label "I2C1_SCL"
+		(at 166.37 55.88 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a6b9d248-ffa2-4820-9cdd-7e635a525aab")
+	)
 	(label "Hours_Ones_C"
 		(at 57.15 57.15 90)
 		(fields_autoplaced yes)
@@ -7969,6 +8042,17 @@
 			(justify left bottom)
 		)
 		(uuid "abc42e98-a0c9-4e43-a147-e7db7e027371")
+	)
+	(label "I2C1_SDA"
+		(at 163.83 55.88 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "abebb49d-5890-4c81-8a0f-0514fea2a15d")
 	)
 	(label "Minutes_Ones_D"
 		(at 113.03 57.15 90)
@@ -8058,17 +8142,6 @@
 		)
 		(uuid "d68a0681-7058-41f9-8154-6bdfa11a063d")
 	)
-	(label "I2C1_SCL"
-		(at 166.37 55.88 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "dacb91ff-619c-4bd6-993b-29a26f14d0b1")
-	)
 	(label "ANODE"
 		(at 139.7 118.11 270)
 		(fields_autoplaced yes)
@@ -8079,17 +8152,6 @@
 			(justify right bottom)
 		)
 		(uuid "daeb593e-1eab-475c-a4ab-cb3f5e93e982")
-	)
-	(label "I2C1_SDA"
-		(at 163.83 55.88 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "db343885-fd6e-4ae3-8628-d748dbf925fd")
 	)
 	(label "Minutes_Tens_C"
 		(at 120.65 57.15 90)
@@ -9712,6 +9774,73 @@
 			(project "Nixie v2 IN-8 Board"
 				(path "/5c74cb95-ab53-4089-bee1-f337a16e1c0e"
 					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 332.74 33.02 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "62b8e59c-d5a9-4533-bb76-4a3f4c34c6d3")
+		(property "Reference" "H6"
+			(at 335.28 30.4799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 335.28 33.0199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+			(at 332.74 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 332.74 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 332.74 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d760d0e5-31c4-412c-8867-e9ca3d39f0a1")
+		)
+		(instances
+			(project "Nixie v2 IN-8 Board"
+				(path "/5c74cb95-ab53-4089-bee1-f337a16e1c0e"
+					(reference "H6")
 					(unit 1)
 				)
 			)
@@ -11530,6 +11659,73 @@
 			(project ""
 				(path "/5c74cb95-ab53-4089-bee1-f337a16e1c0e"
 					(reference "N1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 326.39 26.67 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c1e20c29-c1d6-4c9c-ada4-167134662a4c")
+		(property "Reference" "H5"
+			(at 328.93 24.1299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 328.93 26.6699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_Via"
+			(at 326.39 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 326.39 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 326.39 26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0c10397a-5a30-4ee9-b079-1ea00f42bcd0")
+		)
+		(instances
+			(project "Nixie v2 IN-8 Board"
+				(path "/5c74cb95-ab53-4089-bee1-f337a16e1c0e"
+					(reference "H5")
 					(unit 1)
 				)
 			)
